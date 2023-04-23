@@ -14,9 +14,9 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include "../include/cJSON.h"
+#include <json-c/json.h>
 #include "../model/profile.h"
-#include "data_manipulation.h"
+#include "data_manager.c"
 
 #define PORT "1969" // the port users will be connecting to
 
@@ -154,10 +154,39 @@ int main(void)
         printf("server: got connection from %s\n", s);
 
         if (!fork())
-        {                  // this is the child process
+        { // this is the child process
+
             close(sockfd); // child doesn't need the listener
             if (send(new_fd, "Hello, world!", 13, 0) == -1)
                 perror("send");
+
+            // mock a profile
+            perfil *profile = malloc(sizeof(perfil));
+            strcpy(profile->email, "afonsinho@example.com");
+            strcpy(profile->nome, "John");
+            strcpy(profile->sobrenome, "Doe");
+            strcpy(profile->residencia, "New York");
+            strcpy(profile->formacaoacademica, "CS");
+            profile->anodeformatura = 2020;
+            strcpy(profile->habilidades[0], "C++");
+            strcpy(profile->habilidades[1], "Python");
+            strcpy(profile->habilidades[2], "Java");
+
+            // use the create_profile function to create a profile
+            create_profile(profile);
+
+            // print_info_profile("afonsinho@example.com");
+
+            // list_profiles_by_course("CS");
+
+            // list_profiles_by_skill("C++");
+
+            // list_profiles_by_year(2020);
+
+            print_all_profiles();
+
+            delete_profile("afonsinho@example.com");
+
             close(new_fd);
             exit(0);
         }
