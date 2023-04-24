@@ -12,40 +12,9 @@
 #include "client_manager.c"
 
 #define PORT "1969" // the port client will be connecting to 
-
 #define MAXDATASIZE 100 // max number of bytes we can get at once 
 
-
-
-int get_option(){
-    int opt;
-    printf("Hello! Choose your option!\n");
-    printf("\n");
-    printf("1: Create profile \n");
-    printf("2: Delete profile \n");
-    printf("3: Search profile by email \n");
-    printf("4: Search profile(s) by course \n");
-    printf("5: Search profile(s) by skill \n");
-    printf("6: Search profile(s) by graduation year \n");
-    printf("7: List all profiles\n");
-    printf("8: Exit\n");
-
-    scanf("%d", &opt);
-    return opt;
-}
-
-// get sockaddr, IPv4 or IPv6:
-void *get_in_addr(struct sockaddr *sa)
-{
-    if (sa->sa_family == AF_INET) {
-        return &(((struct sockaddr_in*)sa)->sin_addr);
-    }
-
-    return &(((struct sockaddr_in6*)sa)->sin6_addr);
-}
-
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]){
     int sockfd, numbytes;  
     char buf[MAXDATASIZE];
     struct addrinfo hints, *servinfo, *p;
@@ -93,46 +62,48 @@ int main(int argc, char *argv[])
     freeaddrinfo(servinfo); // all done with this structure
 
     int option = 0;
+    printf("\n");
+    printf("Hello! Choose your option!\n");
 
     while (option != 8){
         option = get_option();
         int bytes_sent = send(sockfd, &option, sizeof(option), 0);
         char str[50];
         switch(option){
-
                     case 1:
+                        printf("\n");
                         create_profile(sockfd);
                         printf("\n");
                     break;
 
                     case 2:
-                        printf("\n");
-                        scanf("Insert profile email: %s", str);
-                        send(sockfd, &str, strlen(str), 0);
+                        printf("Insert profile email:\n");
+                        scanf("%s", str);
+                        general_function(sockfd, str);
                     break;
 
                     case 3:
-                        printf("\n");
-                        scanf("Insert profile email: %s", str);
-                        send(sockfd, &str, strlen(str), 0);
+                        printf("Insert profile email:\n");
+                        scanf("%s", str);
+                        general_function(sockfd, str);
                     break;
 
                     case 4:
-                        printf("\n");
-                        scanf("Insert course: %s", str);
-                        send(sockfd, &str, strlen(str), 0);
+                        printf("Insert profile email:\n");
+                        scanf("%s", str);
+                        general_function(sockfd, str);
                     break;
 
                     case 5:
-                        printf("\n");
-                        scanf("Insert skill: %s", str);
-                        send(sockfd, &str, strlen(str), 0);
+                        printf("Insert profile email:\n");
+                        scanf("%s", str);
+                        general_function(sockfd, str);
                     break;
 
                     case 6:
-                        printf("\n");
-                        scanf("Insert graduation year: %s", str);
-                        send(sockfd, &str, strlen(str), 0);
+                        printf("Insert profile email:\n");
+                        scanf("%s", str);
+                        general_function(sockfd, str);
                     break;
 
                     case 7:

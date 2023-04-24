@@ -101,6 +101,8 @@ int main(void)
         if (!fork())
         { // this is the child process
             close(sockfd); // child doesn't need the listener
+            char message[MAXDATASIZE];
+            char* response;
             int numbytes;
             int opt;
 
@@ -111,13 +113,29 @@ int main(void)
                     case 1:
                         perfil profile;
                         fill_profile(new_fd, &profile);
-                        create_profile(&profile);
+                        response = create_profile(&profile);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
                     break;
 
                     case 2:
+                        receive_message(new_fd, message);
+                        response = delete_profile(message);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
+                        memset(message, 0, sizeof(message)); // reset to empty
                     break;
 
                     case 3:
+                        receive_message(new_fd, message);
+                        response = get_profile_info(message);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
+                        memset(message, 0, sizeof(message)); // reset to empty
+
                     break;
 
                     case 4:

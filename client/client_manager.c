@@ -14,22 +14,34 @@
 #include "../model/profile.h"
 #include <json-c/json.h>
 
+#define MAX_LEN_RCV 100
+
 void receive_message(int socket, char* message){
 
     while(1){
-        int received = recv(socket, message, 500, 0);
+        int received = recv(socket, message, MAX_LEN_RCV-1, 0); //receive msg
+
         if (received == -1) {
-            perror("Error receiving email");
+            perror("Error receiving");
             return;
         }
-        else if (received >= 0){
-            message[strlen(message)] = '\0';
+        else if (received > MAX_LEN_RCV - 1){ //if overflow max defined
+            perror("Error word is too long");
+            return;
+        }
+        else if (received >= 0){ //ok
+            message[received] = '\0';
             return;
         }
     }
 }
 
 void send_message(int socket, char* message){
+
+    if (strlen(message) > MAX_LEN_RCV - 1){
+        perror("String is too big");
+        return;
+    }
 
     while(1){
         int sent = send(socket, message, strlen(message), 0);
@@ -108,4 +120,51 @@ void create_profile(int socket) {
 
     scanf(" %[^\n]", buffer);
     send_message(socket, buffer);
+
+    // Get status
+    printf("\n");
+    receive_message(socket, buffer);
+    printf("%s", buffer);
+
+    return;
+}
+
+void general_function(int socket, char* sendmsg){
+    
+    char response[50];
+    send_message(socket, sendmsg);
+    receive_message(socket, response);
+    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty
+
+    printf("\n");
+    printf("%s", response);
+    printf("\n");
+    return;
+}
+
+int get_option(){
+    int opt;
+    printf("\n");
+    printf("1: Create profile \n");
+    printf("2: Delete profile \n");
+    printf("3: Search profile by email \n");
+    printf("4: Search profile(s) by course \n");
+    printf("5: Search profile(s) by skill \n");
+    printf("6: Search profile(s) by graduation year \n");
+    printf("7: List all profiles\n");
+    printf("8: Exit\n");
+    printf("\n");
+
+    scanf("%d", &opt);
+    return opt;
+}
+
+// get sockaddr, IPv4 or IPv6:
+void *get_in_addr(struct sockaddr *sa)
+{
+    if (sa->sa_family == AF_INET) {
+        return &(((struct sockaddr_in*)sa)->sin_addr);
+    }
+
+    return &(((struct sockaddr_in6*)sa)->sin6_addr);
 }

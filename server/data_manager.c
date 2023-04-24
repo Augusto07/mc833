@@ -48,7 +48,7 @@ void send_message(int socket, char* message){
     while(1){
         int sent = send(socket, message, strlen(message), 0);
         if (sent == -1) {
-            perror("Error receiving email");
+            perror("Error sending");
             return;
         }
         else if (sent >= 0){
@@ -114,36 +114,32 @@ void fill_profile(int socket, perfil* profile){
 //==================FUNCTIONS TO BE PERFORMED BY THE SERVER==================
 
 // cadastrar um novo perfil utilizando o email como identificador;
-int create_profile(perfil *profile){
+char* create_profile(perfil *profile){
 
-    if (profile == NULL)
-    {
-        printf("Error: profile is NULL!\n");
+    char* response;
 
-        return 1;
+    if (profile == NULL){
+        response = "Error, profile is NULL!\n";
+        return response;
     }
 
     FILE *file = fopen(FILENAME, "r");
-    if (file == NULL)
-    {
-        printf("Error opening file!\n");
 
-        return 1;
+    if (file == NULL){
+        response = "Error, can't open file!\n";
+        return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
-    if (profiles == NULL)
-    {
-        printf("Error reading file!\n");
-        fclose(file);
 
-        return 1;
+    if (profiles == NULL){
+        response = "Error, can't read file!\n";
+        return response;
     }
 
     // print the profiles
 
     profiles = json_object_object_get(profiles, "profiles");
-
     int n_profiles = json_object_array_length(profiles);
 
     for (int i = 0; i < n_profiles; i++)
@@ -151,13 +147,11 @@ int create_profile(perfil *profile){
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email), profile->email) == 0)
-        {
-            printf("Error: email already exists!\n");
+        if (strcmp(json_object_get_string(email), profile->email) == 0){
             fclose(file);
             json_object_put(profiles);
-
-            return 1;
+            response = "Error, profile already exists\n";
+            return response;
         }
     }
 
@@ -169,14 +163,13 @@ int create_profile(perfil *profile){
     json_object_object_add(new_profile, "residencia", json_object_new_string(profile->residencia));
     json_object_object_add(new_profile, "formacao_academica", json_object_new_string(profile->formacaoacademica));
     json_object_object_add(new_profile, "ano_de_formatura", json_object_new_int(profile->anodeformatura));
-
     json_object *habilidades_array = json_object_new_array();
-    for (int i = 0; i < 10; i++)
-    {
+
+    for (int i = 0; i < 10; i++){
         json_object_array_add(habilidades_array, json_object_new_string(profile->habilidades[i]));
     }
-    json_object_object_add(new_profile, "habilidades", habilidades_array);
 
+    json_object_object_add(new_profile, "habilidades", habilidades_array);
     json_object_array_add(profiles, new_profile);
 
     // print the profiles
@@ -185,38 +178,36 @@ int create_profile(perfil *profile){
 
     json_object_object_add(new_profiles, "profiles", profiles);
 
-    if (json_object_to_file(FILENAME, new_profiles) == -1)
-    {
-        printf("Error writing to file!\n");
+    if (json_object_to_file(FILENAME, new_profiles) == -1){
         fclose(file);
         json_object_put(new_profiles);
-
-        return 1;
+        response = "Error, can't write file!\n";
+        return response;
     }
 
     fclose(file);
-
-    printf("Profile created successfully with the email: %s\n", profile->email);
-
-    return 0;
+    response = "Profile created!\n";
+    return response;
 }
 
 // remover um perfil a partir de seu identificador (email);
 char* delete_profile(char *email){
 
-    FILE *file = fopen(FILENAME, "r");
-    if (file == NULL){
-        printf("Error opening file!\n");
+    char *response;
 
-        return NULL;
+    FILE *file = fopen(FILENAME, "r");
+
+    if (file == NULL){
+        response = "Error, can't open file!\n";
+        return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
-    if (profiles == NULL){
-        printf("Error reading file!\n");
-        fclose(file);
 
-        return NULL;
+    if (profiles == NULL){
+        fclose(file);
+        response = "Error, can't read file!\n";
+        return response;
     }
 
     // print the profiles
@@ -229,29 +220,26 @@ char* delete_profile(char *email){
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email_ = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email_), email) == 0)
-        {
+        if (strcmp(json_object_get_string(email_), email) == 0){
             json_object_array_del_idx(profiles, i, 1);
-            return ("Profile deleted successfully with the email: %s\n", email);
             json_object *new_profiles = json_object_new_object();
-
             json_object_object_add(new_profiles, "profiles", profiles);
 
             if (json_object_to_file(FILENAME, new_profiles) == -1)
             {
-                printf("Error writing to file!\n");
                 fclose(file);
                 json_object_put(new_profiles);
-
-                return NULL;
+                response = "Error, can't write file!\n";
+                return response;
             }
-            return NULL;
+            response = "Profile deleted!\n";
+            return response;
         }
     }
 
     fclose(file);
-
-    return ("Profile not found with the email: %s\n", email);
+    response = "Can't find profile with that email!\n";
+    return response;
 }
 
 // dado o email de um perfil, retornar suas informações;
@@ -288,7 +276,7 @@ char* get_profile_info(char* email) {
             int n_habilidades = json_object_array_length(habilidades_array);
 
             for (int i = 0; i < n_habilidades; i++) {
-                char* habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
+                const char* habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
                 if (strcmp(habilidade, "") != 0) {
                     char* tmp = malloc(sizeof(char) * 1000);
                     snprintf(tmp, 1000, "\t%s\n", habilidade);
