@@ -15,7 +15,7 @@
 #include <json-c/json.h>
 
 #define FILENAME "../json/perfil.json"
-#define MAX_LEN_RCV 100
+#define MAX_LEN_RCV 1000
 
 void receive_message(int socket, char* message){
 
@@ -244,30 +244,33 @@ char* delete_profile(char *email){
 
 // dado o email de um perfil, retornar suas informações;
 char* get_profile_info(char* email) {
+    char *response;
+
     FILE* file = fopen(FILENAME, "r");
     if (file == NULL) {
-        printf("Error opening file!\n");
-        return NULL;
+        response = "Error, can't open file!\n";
+        return response;
     }
 
     json_object* profiles = json_object_from_file(FILENAME);
     if (profiles == NULL) {
-        printf("Error reading file!\n");
         fclose(file);
-        return NULL;
+        response = "Error, can't read file!\n";
+        return response;
     }
 
     profiles = json_object_object_get(profiles, "profiles");
     int n_profiles = json_object_array_length(profiles);
 
     for (int i = 0; i < n_profiles; i++) {
+
         json_object* p = json_object_array_get_idx(profiles, i);
         json_object* email_ = json_object_object_get(p, "email");
 
         if (strcmp(json_object_get_string(email_), email) == 0) {
 
             char* info = malloc(sizeof(char) * 1000);
-            snprintf(info, 1000, "Email: %s\nNome: %s\nSobrenome: %s\nResidencia: %s\nFormacao Academica: %s\nAno de Formatura: %d\nHabilidades:\n", 
+            snprintf(info, 1000, "Email: %s\nNome: %s\nSobrenome: %s\nResidencia: %s\nFormacao Academica: %s\nAno de Formatura: %d\nHabilidades: ", 
                 json_object_get_string(email_), json_object_get_string(json_object_object_get(p, "nome")),
                 json_object_get_string(json_object_object_get(p, "sobrenome")), json_object_get_string(json_object_object_get(p, "residencia")),
                 json_object_get_string(json_object_object_get(p, "formacao_academica")), json_object_get_int(json_object_object_get(p, "ano_de_formatura")));
@@ -277,9 +280,10 @@ char* get_profile_info(char* email) {
 
             for (int i = 0; i < n_habilidades; i++) {
                 const char* habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
-                if (strcmp(habilidade, "") != 0) {
+
+                if (strcmp(habilidade, "") != 0) { //se hab não é vazia
                     char* tmp = malloc(sizeof(char) * 1000);
-                    snprintf(tmp, 1000, "\t%s\n", habilidade);
+                    snprintf(tmp, 1000, " %s,", habilidade); 
                     strncat(info, tmp, 1000 - strlen(info) - 1);
                     free(tmp);
                 }
@@ -291,7 +295,8 @@ char* get_profile_info(char* email) {
     }
 
     fclose(file);
-    return NULL;
+    response = "Error, profile doesn't exists!\n";
+    return response;
 }
 
 // listar todas as pessoas (email e nome) formadas em um determinado curso;
@@ -392,8 +397,8 @@ char* list_profiles_by_skill(char *skill){
 
 // listar todas as informações de todos os perfis;
 char* get_all_profiles(){
-    char* profiles = malloc(5000 * sizeof(char)); // allocate memory for the char array
-    memset(profiles, 0, 5000); // initialize the array with null bytes
+    char* profiles = malloc(10000 * sizeof(char)); // allocate memory for the char array
+    memset(profiles, 0, 10000); // initialize the array with null bytes
 
     FILE* file = fopen(FILENAME, "r");
 
@@ -416,7 +421,7 @@ char* get_all_profiles(){
 
     for (int i = 0; i < n_profiles; i++){
         json_object* profile = json_object_array_get_idx(profiles_array, i);
-        char email[100], nome[100], sobrenome[100], residencia[100], formacao[100], habilidades[500];
+        char email[100], nome[100], sobrenome[100], residencia[100], formacao[100], habilidades[1000];
         int ano_formatura;
 
         // get the values of each field in the profile object
@@ -472,7 +477,7 @@ char* list_profiles_by_year(int year)
         return NULL;
     }
 
-    char *profiles = malloc(5000 * sizeof(char)); // allocate memory for the profiles string
+    char *profiles = malloc(10000 * sizeof(char)); // allocate memory for the profiles string
     profiles[0] = '\0'; // initialize the string to an empty string
 
     strcat(profiles, "Perfis com a formacao em ");

@@ -16,7 +16,7 @@
 
 #define PORT "1969" // the port users will be connecting to
 #define BACKLOG 1 // how many pending connections queue will hold
-#define MAXDATASIZE 100
+#define MAXDATASIZE 1000
 
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
