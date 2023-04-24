@@ -1,7 +1,3 @@
-/*
-** client.c -- a stream socket client demo
-*/
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,12 +7,32 @@
 #include <sys/types.h>
 #include <netinet/in.h>
 #include <sys/socket.h>
-
 #include <arpa/inet.h>
+#include "../model/profile.h"
+#include "client_manager.c"
 
 #define PORT "1969" // the port client will be connecting to 
 
 #define MAXDATASIZE 100 // max number of bytes we can get at once 
+
+
+
+int get_option(){
+    int opt;
+    printf("Hello! Choose your option!\n");
+    printf("\n");
+    printf("1: Create profile \n");
+    printf("2: Delete profile \n");
+    printf("3: Search profile by email \n");
+    printf("4: Search profile(s) by course \n");
+    printf("5: Search profile(s) by skill \n");
+    printf("6: Search profile(s) by graduation year \n");
+    printf("7: List all profiles\n");
+    printf("8: Exit\n");
+
+    scanf("%d", &opt);
+    return opt;
+}
 
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
@@ -63,7 +79,6 @@ int main(int argc, char *argv[])
             perror("client: connect");
             continue;
         }
-
         break;
     }
 
@@ -72,20 +87,64 @@ int main(int argc, char *argv[])
         return 2;
     }
 
-    inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr),
-            s, sizeof s);
+    inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr), s, sizeof s);
     printf("client: connecting to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
 
-    if ((numbytes = recv(sockfd, buf, MAXDATASIZE-1, 0)) == -1) {
-        perror("recv");
-        exit(1);
+    int option = 0;
+
+    while (option != 8){
+        option = get_option();
+        int bytes_sent = send(sockfd, &option, sizeof(option), 0);
+        char str[50];
+        switch(option){
+
+                    case 1:
+                        create_profile(sockfd);
+                        printf("\n");
+                    break;
+
+                    case 2:
+                        printf("\n");
+                        scanf("Insert profile email: %s", str);
+                        send(sockfd, &str, strlen(str), 0);
+                    break;
+
+                    case 3:
+                        printf("\n");
+                        scanf("Insert profile email: %s", str);
+                        send(sockfd, &str, strlen(str), 0);
+                    break;
+
+                    case 4:
+                        printf("\n");
+                        scanf("Insert course: %s", str);
+                        send(sockfd, &str, strlen(str), 0);
+                    break;
+
+                    case 5:
+                        printf("\n");
+                        scanf("Insert skill: %s", str);
+                        send(sockfd, &str, strlen(str), 0);
+                    break;
+
+                    case 6:
+                        printf("\n");
+                        scanf("Insert graduation year: %s", str);
+                        send(sockfd, &str, strlen(str), 0);
+                    break;
+
+                    case 7:
+                    break;
+                    
+                    case 8:
+                    break;
+
+                    default:
+                        printf("\n Insert a valid option! \n");
+                }
     }
-
-    buf[numbytes] = '\0';
-
-    printf("client: received '%s'\n",buf);
 
     close(sockfd);
 
