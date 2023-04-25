@@ -1,0 +1,2261 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineSystem.cmake:204 (message)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      The system is: Linux - 5.4.0-1105-azure - x86_64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler: /usr/bin/cc 
+      Build flags: 
+      Id flags:  
+      
+      The output was:
+      0
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+      
+      The C compiler identification is GNU, found in:
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/3.26.1/CompilerIdC/a.out
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:57 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_339a6/fast && /usr/bin/make  -f CMakeFiles/cmTC_339a6.dir/build.make CMakeFiles/cmTC_339a6.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I'
+        Building C object CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o
+        /usr/bin/cc   -v -o CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -c /home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccu8wJNF.s
+        GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"
+        ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"
+        #include "..." search starts here:
+        #include <...> search starts here:
+         /usr/lib/gcc/x86_64-linux-gnu/9/include
+         /usr/local/include
+         /usr/include/x86_64-linux-gnu
+         /usr/include
+        End of search list.
+        GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)
+        	compiled by GNU C version 9.4.0, GMP version 6.2.0, MPFR version 4.0.2, MPC version 1.1.0, isl version isl-0.22.1-GMP
+        
+        GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+        Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+         as -v --64 -o CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o /tmp/ccu8wJNF.s
+        GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64'
+        Linking C executable cmTC_339a6
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_339a6.dir/link.txt --verbose=1
+        /usr/bin/cc  -v CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -o cmTC_339a6 
+        Using built-in specs.
+        COLLECT_GCC=/usr/bin/cc
+        COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper
+        OFFLOAD_TARGET_NAMES=nvptx-none:hsa
+        OFFLOAD_TARGET_DEFAULT=1
+        Target: x86_64-linux-gnu
+        Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c,ada,c++,go,brig,d,fortran,objc,obj-c++,gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32,m64,mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr,hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu
+        Thread model: posix
+        gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) 
+        COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/
+        LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_339a6' '-mtune=generic' '-march=x86-64'
+         /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYd3Fo7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_339a6 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_339a6' '-mtune=generic' '-march=x86-64'
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I'
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:127 (message)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Parsed C implicit include dir info: rv=done
+        found start of include info
+        found start of implicit include info
+          add: [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+          add: [/usr/local/include]
+          add: [/usr/include/x86_64-linux-gnu]
+          add: [/usr/include]
+        end of search list found
+        collapse include dir [/usr/lib/gcc/x86_64-linux-gnu/9/include] ==> [/usr/lib/gcc/x86_64-linux-gnu/9/include]
+        collapse include dir [/usr/local/include] ==> [/usr/local/include]
+        collapse include dir [/usr/include/x86_64-linux-gnu] ==> [/usr/include/x86_64-linux-gnu]
+        collapse include dir [/usr/include] ==> [/usr/include]
+        implicit include dirs: [/usr/lib/gcc/x86_64-linux-gnu/9/include;/usr/local/include;/usr/include/x86_64-linux-gnu;/usr/include]
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeDetermineCompilerABI.cmake:152 (message)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:13 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        ignore line: [Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I]
+        ignore line: []
+        ignore line: [Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_339a6/fast && /usr/bin/make  -f CMakeFiles/cmTC_339a6.dir/build.make CMakeFiles/cmTC_339a6.dir/build]
+        ignore line: [make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-v23Y1I']
+        ignore line: [Building C object CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o]
+        ignore line: [/usr/bin/cc   -v -o CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -c /home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/cc1 -quiet -v -imultiarch x86_64-linux-gnu /home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CMakeCCompilerABI.c -quiet -dumpbase CMakeCCompilerABI.c -mtune=generic -march=x86-64 -auxbase-strip CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -version -fasynchronous-unwind-tables -fstack-protector-strong -Wformat -Wformat-security -fstack-clash-protection -fcf-protection -o /tmp/ccu8wJNF.s]
+        ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [ignoring nonexistent directory "/usr/local/include/x86_64-linux-gnu"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/include-fixed"]
+        ignore line: [ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/9/../../../../x86_64-linux-gnu/include"]
+        ignore line: [#include "..." search starts here:]
+        ignore line: [#include <...> search starts here:]
+        ignore line: [ /usr/lib/gcc/x86_64-linux-gnu/9/include]
+        ignore line: [ /usr/local/include]
+        ignore line: [ /usr/include/x86_64-linux-gnu]
+        ignore line: [ /usr/include]
+        ignore line: [End of search list.]
+        ignore line: [GNU C17 (Ubuntu 9.4.0-1ubuntu1~20.04.1) version 9.4.0 (x86_64-linux-gnu)]
+        ignore line: [	compiled by GNU C version 9.4.0  GMP version 6.2.0  MPFR version 4.0.2  MPC version 1.1.0  isl version isl-0.22.1-GMP]
+        ignore line: []
+        ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
+        ignore line: [Compiler executable checksum: c0c95c0b4209efec1c1892d5ff24030b]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [ as -v --64 -o CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o /tmp/ccu8wJNF.s]
+        ignore line: [GNU assembler version 2.34 (x86_64-linux-gnu) using BFD version (GNU Binutils for Ubuntu) 2.34]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o' '-c' '-mtune=generic' '-march=x86-64']
+        ignore line: [Linking C executable cmTC_339a6]
+        ignore line: [/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_339a6.dir/link.txt --verbose=1]
+        ignore line: [/usr/bin/cc  -v CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -o cmTC_339a6 ]
+        ignore line: [Using built-in specs.]
+        ignore line: [COLLECT_GCC=/usr/bin/cc]
+        ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper]
+        ignore line: [OFFLOAD_TARGET_NAMES=nvptx-none:hsa]
+        ignore line: [OFFLOAD_TARGET_DEFAULT=1]
+        ignore line: [Target: x86_64-linux-gnu]
+        ignore line: [Configured with: ../src/configure -v --with-pkgversion='Ubuntu 9.4.0-1ubuntu1~20.04.1' --with-bugurl=file:///usr/share/doc/gcc-9/README.Bugs --enable-languages=c ada c++ go brig d fortran objc obj-c++ gm2 --prefix=/usr --with-gcc-major-version-only --program-suffix=-9 --program-prefix=x86_64-linux-gnu- --enable-shared --enable-linker-build-id --libexecdir=/usr/lib --without-included-gettext --enable-threads=posix --libdir=/usr/lib --enable-nls --enable-clocale=gnu --enable-libstdcxx-debug --enable-libstdcxx-time=yes --with-default-libstdcxx-abi=new --enable-gnu-unique-object --disable-vtable-verify --enable-plugin --enable-default-pie --with-system-zlib --with-target-system-zlib=auto --enable-objc-gc=auto --enable-multiarch --disable-werror --with-arch-32=i686 --with-abi=m64 --with-multilib-list=m32 m64 mx32 --enable-multilib --with-tune=generic --enable-offload-targets=nvptx-none=/build/gcc-9-Av3uEd/gcc-9-9.4.0/debian/tmp-nvptx/usr hsa --without-cuda-driver --enable-checking=release --build=x86_64-linux-gnu --host=x86_64-linux-gnu --target=x86_64-linux-gnu]
+        ignore line: [Thread model: posix]
+        ignore line: [gcc version 9.4.0 (Ubuntu 9.4.0-1ubuntu1~20.04.1) ]
+        ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/]
+        ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/9/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/9/../../../:/lib/:/usr/lib/]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_339a6' '-mtune=generic' '-march=x86-64']
+        link line: [ /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/tmp/ccYd3Fo7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_339a6 /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/collect2] ==> ignore
+          arg [-plugin] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so] ==> ignore
+          arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper] ==> ignore
+          arg [-plugin-opt=-fresolution=/tmp/ccYd3Fo7.res] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [-plugin-opt=-pass-through=-lc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
+          arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
+          arg [--build-id] ==> ignore
+          arg [--eh-frame-hdr] ==> ignore
+          arg [-m] ==> ignore
+          arg [elf_x86_64] ==> ignore
+          arg [--hash-style=gnu] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-dynamic-linker] ==> ignore
+          arg [/lib64/ld-linux-x86-64.so.2] ==> ignore
+          arg [-pie] ==> ignore
+          arg [-znow] ==> ignore
+          arg [-zrelro] ==> ignore
+          arg [-o] ==> ignore
+          arg [cmTC_339a6] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib]
+          arg [-L/lib/x86_64-linux-gnu] ==> dir [/lib/x86_64-linux-gnu]
+          arg [-L/lib/../lib] ==> dir [/lib/../lib]
+          arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
+          arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
+          arg [-L/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..]
+          arg [CMakeFiles/cmTC_339a6.dir/CMakeCCompilerABI.c.o] ==> ignore
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [-lc] ==> lib [c]
+          arg [-lgcc] ==> lib [gcc]
+          arg [--push-state] ==> ignore
+          arg [--as-needed] ==> ignore
+          arg [-lgcc_s] ==> lib [gcc_s]
+          arg [--pop-state] ==> ignore
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o]
+          arg [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o] ==> [/usr/lib/x86_64-linux-gnu/Scrt1.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o] ==> [/usr/lib/x86_64-linux-gnu/crti.o]
+        collapse obj [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o] ==> [/usr/lib/x86_64-linux-gnu/crtn.o]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9] ==> [/usr/lib/gcc/x86_64-linux-gnu/9]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib] ==> [/usr/lib]
+        collapse library dir [/lib/x86_64-linux-gnu] ==> [/lib/x86_64-linux-gnu]
+        collapse library dir [/lib/../lib] ==> [/lib]
+        collapse library dir [/usr/lib/x86_64-linux-gnu] ==> [/usr/lib/x86_64-linux-gnu]
+        collapse library dir [/usr/lib/../lib] ==> [/usr/lib]
+        collapse library dir [/usr/lib/gcc/x86_64-linux-gnu/9/../../..] ==> [/usr/lib]
+        implicit libs: [gcc;gcc_s;c;gcc;gcc_s]
+        implicit objs: [/usr/lib/x86_64-linux-gnu/Scrt1.o;/usr/lib/x86_64-linux-gnu/crti.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o;/usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o;/usr/lib/x86_64-linux-gnu/crtn.o]
+        implicit dirs: [/usr/lib/gcc/x86_64-linux-gnu/9;/usr/lib/x86_64-linux-gnu;/usr/lib;/lib/x86_64-linux-gnu;/lib]
+        implicit fwks: []
+      
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:115 (check_include_file)"
+    checks:
+      - "Looking for fcntl.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_FCNTL_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4fdac/fast && /usr/bin/make  -f CMakeFiles/cmTC_4fdac.dir/build.make CMakeFiles/cmTC_4fdac.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI'
+        Building C object CMakeFiles/cmTC_4fdac.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_4fdac.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI/CheckIncludeFile.c
+        Linking C executable cmTC_4fdac
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4fdac.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4fdac.dir/CheckIncludeFile.c.o -o cmTC_4fdac  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cTWWDI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:116 (check_include_file)"
+    checks:
+      - "Looking for inttypes.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_INTTYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b40fb/fast && /usr/bin/make  -f CMakeFiles/cmTC_b40fb.dir/build.make CMakeFiles/cmTC_b40fb.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J'
+        Building C object CMakeFiles/cmTC_b40fb.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_b40fb.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J/CheckIncludeFile.c
+        Linking C executable cmTC_b40fb
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b40fb.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b40fb.dir/CheckIncludeFile.c.o -o cmTC_b40fb  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Pdmv3J'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:117 (check_include_file)"
+    checks:
+      - "Looking for stdarg.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STDARG_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2c6f5/fast && /usr/bin/make  -f CMakeFiles/cmTC_2c6f5.dir/build.make CMakeFiles/cmTC_2c6f5.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH'
+        Building C object CMakeFiles/cmTC_2c6f5.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_2c6f5.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH/CheckIncludeFile.c
+        Linking C executable cmTC_2c6f5
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2c6f5.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_2c6f5.dir/CheckIncludeFile.c.o -o cmTC_2c6f5  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-i9HCEH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:118 (check_include_file)"
+    checks:
+      - "Looking for strings.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRINGS_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_04896/fast && /usr/bin/make  -f CMakeFiles/cmTC_04896.dir/build.make CMakeFiles/cmTC_04896.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ'
+        Building C object CMakeFiles/cmTC_04896.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_04896.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ/CheckIncludeFile.c
+        Linking C executable cmTC_04896
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_04896.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_04896.dir/CheckIncludeFile.c.o -o cmTC_04896  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JKTuBJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:119 (check_include_file)"
+    checks:
+      - "Looking for string.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRING_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_347e1/fast && /usr/bin/make  -f CMakeFiles/cmTC_347e1.dir/build.make CMakeFiles/cmTC_347e1.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ'
+        Building C object CMakeFiles/cmTC_347e1.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_347e1.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ/CheckIncludeFile.c
+        Linking C executable cmTC_347e1
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_347e1.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_347e1.dir/CheckIncludeFile.c.o -o cmTC_347e1  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-AKximJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:120 (check_include_file)"
+    checks:
+      - "Looking for syslog.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYSLOG_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_65f6c/fast && /usr/bin/make  -f CMakeFiles/cmTC_65f6c.dir/build.make CMakeFiles/cmTC_65f6c.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI'
+        Building C object CMakeFiles/cmTC_65f6c.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_65f6c.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI/CheckIncludeFile.c
+        Linking C executable cmTC_65f6c
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_65f6c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_65f6c.dir/CheckIncludeFile.c.o -o cmTC_65f6c  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jSS3bI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFiles.cmake:137 (try_compile)"
+      - "CMakeLists.txt:123 (check_include_files)"
+    checks:
+      - "Looking for 4 include files stdlib.h, ..., float.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "STDC_HEADERS"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ac5cb/fast && /usr/bin/make  -f CMakeFiles/cmTC_ac5cb.dir/build.make CMakeFiles/cmTC_ac5cb.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ'
+        Building C object CMakeFiles/cmTC_ac5cb.dir/STDC_HEADERS.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_ac5cb.dir/STDC_HEADERS.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ/STDC_HEADERS.c
+        Linking C executable cmTC_ac5cb
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ac5cb.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ac5cb.dir/STDC_HEADERS.c.o -o cmTC_ac5cb  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-12ELiJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:125 (check_include_file)"
+    checks:
+      - "Looking for unistd.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_UNISTD_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_81a90/fast && /usr/bin/make  -f CMakeFiles/cmTC_81a90.dir/build.make CMakeFiles/cmTC_81a90.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL'
+        Building C object CMakeFiles/cmTC_81a90.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_81a90.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL/CheckIncludeFile.c
+        Linking C executable cmTC_81a90
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_81a90.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_81a90.dir/CheckIncludeFile.c.o -o cmTC_81a90  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-G4HviL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:126 (check_include_file)"
+    checks:
+      - "Looking for sys/types.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_TYPES_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8a24c/fast && /usr/bin/make  -f CMakeFiles/cmTC_8a24c.dir/build.make CMakeFiles/cmTC_8a24c.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK'
+        Building C object CMakeFiles/cmTC_8a24c.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_8a24c.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK/CheckIncludeFile.c
+        Linking C executable cmTC_8a24c
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a24c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_8a24c.dir/CheckIncludeFile.c.o -o cmTC_8a24c  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-6espBK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:127 (check_include_file)"
+    checks:
+      - "Looking for sys/resource.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_RESOURCE_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_57b3b/fast && /usr/bin/make  -f CMakeFiles/cmTC_57b3b.dir/build.make CMakeFiles/cmTC_57b3b.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH'
+        Building C object CMakeFiles/cmTC_57b3b.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_57b3b.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH/CheckIncludeFile.c
+        Linking C executable cmTC_57b3b
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57b3b.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_57b3b.dir/CheckIncludeFile.c.o -o cmTC_57b3b  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Dd3czH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:129 (check_include_file)"
+    checks:
+      - "Looking for dlfcn.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DLFCN_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_591d0/fast && /usr/bin/make  -f CMakeFiles/cmTC_591d0.dir/build.make CMakeFiles/cmTC_591d0.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL'
+        Building C object CMakeFiles/cmTC_591d0.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_591d0.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL/CheckIncludeFile.c
+        Linking C executable cmTC_591d0
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_591d0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_591d0.dir/CheckIncludeFile.c.o -o cmTC_591d0  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-lxISvL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:130 (check_include_file)"
+    checks:
+      - "Looking for endian.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_ENDIAN_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_57b47/fast && /usr/bin/make  -f CMakeFiles/cmTC_57b47.dir/build.make CMakeFiles/cmTC_57b47.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL'
+        Building C object CMakeFiles/cmTC_57b47.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_57b47.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL/CheckIncludeFile.c
+        Linking C executable cmTC_57b47
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_57b47.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_57b47.dir/CheckIncludeFile.c.o -o cmTC_57b47  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-HNEBGL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:131 (check_include_file)"
+    checks:
+      - "Looking for limits.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_LIMITS_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_97000/fast && /usr/bin/make  -f CMakeFiles/cmTC_97000.dir/build.make CMakeFiles/cmTC_97000.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K'
+        Building C object CMakeFiles/cmTC_97000.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_97000.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K/CheckIncludeFile.c
+        Linking C executable cmTC_97000
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_97000.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_97000.dir/CheckIncludeFile.c.o -o cmTC_97000  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-qxqD5K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:132 (check_include_file)"
+    checks:
+      - "Looking for locale.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_LOCALE_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_87556/fast && /usr/bin/make  -f CMakeFiles/cmTC_87556.dir/build.make CMakeFiles/cmTC_87556.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J'
+        Building C object CMakeFiles/cmTC_87556.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_87556.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J/CheckIncludeFile.c
+        Linking C executable cmTC_87556
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_87556.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_87556.dir/CheckIncludeFile.c.o -o cmTC_87556  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-5B8R0J'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:133 (check_include_file)"
+    checks:
+      - "Looking for memory.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_MEMORY_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_84573/fast && /usr/bin/make  -f CMakeFiles/cmTC_84573.dir/build.make CMakeFiles/cmTC_84573.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ'
+        Building C object CMakeFiles/cmTC_84573.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_84573.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ/CheckIncludeFile.c
+        Linking C executable cmTC_84573
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84573.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_84573.dir/CheckIncludeFile.c.o -o cmTC_84573  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-wRIVAJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:135 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_c00e6/fast && /usr/bin/make  -f CMakeFiles/cmTC_c00e6.dir/build.make CMakeFiles/cmTC_c00e6.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I'
+        Building C object CMakeFiles/cmTC_c00e6.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_c00e6.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I/CheckIncludeFile.c
+        Linking C executable cmTC_c00e6
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c00e6.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_c00e6.dir/CheckIncludeFile.c.o -o cmTC_c00e6  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GNts3I'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:136 (check_include_file)"
+    checks:
+      - "Looking for stdlib.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STDLIB_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_60c5c/fast && /usr/bin/make  -f CMakeFiles/cmTC_60c5c.dir/build.make CMakeFiles/cmTC_60c5c.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK'
+        Building C object CMakeFiles/cmTC_60c5c.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_60c5c.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK/CheckIncludeFile.c
+        Linking C executable cmTC_60c5c
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_60c5c.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_60c5c.dir/CheckIncludeFile.c.o -o cmTC_60c5c  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rSnFjK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:137 (check_include_file)"
+    checks:
+      - "Looking for sys/cdefs.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_CDEFS_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_51346/fast && /usr/bin/make  -f CMakeFiles/cmTC_51346.dir/build.make CMakeFiles/cmTC_51346.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH'
+        Building C object CMakeFiles/cmTC_51346.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_51346.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH/CheckIncludeFile.c
+        Linking C executable cmTC_51346
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_51346.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_51346.dir/CheckIncludeFile.c.o -o cmTC_51346  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-kctHvH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:138 (check_include_file)"
+    checks:
+      - "Looking for sys/param.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_PARAM_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2d370/fast && /usr/bin/make  -f CMakeFiles/cmTC_2d370.dir/build.make CMakeFiles/cmTC_2d370.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I'
+        Building C object CMakeFiles/cmTC_2d370.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_2d370.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I/CheckIncludeFile.c
+        Linking C executable cmTC_2d370
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d370.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_2d370.dir/CheckIncludeFile.c.o -o cmTC_2d370  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JyLT5I'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:139 (check_include_file)"
+    checks:
+      - "Looking for sys/random.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_RANDOM_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4c0e4/fast && /usr/bin/make  -f CMakeFiles/cmTC_4c0e4.dir/build.make CMakeFiles/cmTC_4c0e4.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI'
+        Building C object CMakeFiles/cmTC_4c0e4.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_4c0e4.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI/CheckIncludeFile.c
+        Linking C executable cmTC_4c0e4
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4c0e4.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4c0e4.dir/CheckIncludeFile.c.o -o cmTC_4c0e4  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-q3kKJI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:140 (check_include_file)"
+    checks:
+      - "Looking for sys/stat.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SYS_STAT_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_88137/fast && /usr/bin/make  -f CMakeFiles/cmTC_88137.dir/build.make CMakeFiles/cmTC_88137.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH'
+        Building C object CMakeFiles/cmTC_88137.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_88137.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH/CheckIncludeFile.c
+        Linking C executable cmTC_88137
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_88137.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_88137.dir/CheckIncludeFile.c.o -o cmTC_88137  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4IXkTH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:141 (check_include_file)"
+    checks:
+      - "Looking for xlocale.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_XLOCALE_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_471d4/fast && /usr/bin/make  -f CMakeFiles/cmTC_471d4.dir/build.make CMakeFiles/cmTC_471d4.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK'
+        Building C object CMakeFiles/cmTC_471d4.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_471d4.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK/CheckIncludeFile.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK/CheckIncludeFile.c:1:10: fatal error: xlocale.h: No such file or directory
+            1 | #include <xlocale.h>
+              |          ^~~~~~~~~~~
+        compilation terminated.
+        make[1]: *** [CMakeFiles/cmTC_471d4.dir/build.make:78: CMakeFiles/cmTC_471d4.dir/CheckIncludeFile.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rrZVCK'
+        make: *** [Makefile:127: cmTC_471d4/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:150 (check_symbol_exists)"
+    checks:
+      - "Looking for _isnan"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL__ISNAN"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_77032/fast && /usr/bin/make  -f CMakeFiles/cmTC_77032.dir/build.make CMakeFiles/cmTC_77032.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK'
+        Building C object CMakeFiles/cmTC_77032.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_77032.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK/CheckSymbolExists.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK/CheckSymbolExists.c: In function ‘main’:
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK/CheckSymbolExists.c:8:19: error: ‘_isnan’ undeclared (first use in this function)
+            8 |   return ((int*)(&_isnan))[argc];
+              |                   ^~~~~~
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        make[1]: *** [CMakeFiles/cmTC_77032.dir/build.make:78: CMakeFiles/cmTC_77032.dir/CheckSymbolExists.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4rQppK'
+        make: *** [Makefile:127: cmTC_77032/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:151 (check_symbol_exists)"
+    checks:
+      - "Looking for _finite"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL__FINITE"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9322d/fast && /usr/bin/make  -f CMakeFiles/cmTC_9322d.dir/build.make CMakeFiles/cmTC_9322d.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL'
+        Building C object CMakeFiles/cmTC_9322d.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_9322d.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL/CheckSymbolExists.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL/CheckSymbolExists.c: In function ‘main’:
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL/CheckSymbolExists.c:8:19: error: ‘_finite’ undeclared (first use in this function)
+            8 |   return ((int*)(&_finite))[argc];
+              |                   ^~~~~~~
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        make[1]: *** [CMakeFiles/cmTC_9322d.dir/build.make:78: CMakeFiles/cmTC_9322d.dir/CheckSymbolExists.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4CO4JL'
+        make: *** [Makefile:127: cmTC_9322d/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:154 (check_symbol_exists)"
+    checks:
+      - "Looking for INFINITY"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL_INFINITY"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_389c5/fast && /usr/bin/make  -f CMakeFiles/cmTC_389c5.dir/build.make CMakeFiles/cmTC_389c5.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH'
+        Building C object CMakeFiles/cmTC_389c5.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_389c5.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH/CheckSymbolExists.c
+        Linking C executable cmTC_389c5
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_389c5.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_389c5.dir/CheckSymbolExists.c.o -o cmTC_389c5  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-TedZAH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:155 (check_symbol_exists)"
+    checks:
+      - "Looking for isinf"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL_ISINF"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_dfcaa/fast && /usr/bin/make  -f CMakeFiles/cmTC_dfcaa.dir/build.make CMakeFiles/cmTC_dfcaa.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL'
+        Building C object CMakeFiles/cmTC_dfcaa.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_dfcaa.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL/CheckSymbolExists.c
+        Linking C executable cmTC_dfcaa
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_dfcaa.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_dfcaa.dir/CheckSymbolExists.c.o -o cmTC_dfcaa  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-fqQvWL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:156 (check_symbol_exists)"
+    checks:
+      - "Looking for isnan"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL_ISNAN"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ffff0/fast && /usr/bin/make  -f CMakeFiles/cmTC_ffff0.dir/build.make CMakeFiles/cmTC_ffff0.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL'
+        Building C object CMakeFiles/cmTC_ffff0.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_ffff0.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL/CheckSymbolExists.c
+        Linking C executable cmTC_ffff0
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ffff0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ffff0.dir/CheckSymbolExists.c.o -o cmTC_ffff0  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MdVLhL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:157 (check_symbol_exists)"
+    checks:
+      - "Looking for nan"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DECL_NAN"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ba5db/fast && /usr/bin/make  -f CMakeFiles/cmTC_ba5db.dir/build.make CMakeFiles/cmTC_ba5db.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK'
+        Building C object CMakeFiles/cmTC_ba5db.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_ba5db.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK/CheckSymbolExists.c
+        Linking C executable cmTC_ba5db
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba5db.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ba5db.dir/CheckSymbolExists.c.o -o cmTC_ba5db  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-Ni18VK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:160 (check_symbol_exists)"
+    checks:
+      - "Looking for _doprnt"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_DOPRNT"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cdb6b/fast && /usr/bin/make  -f CMakeFiles/cmTC_cdb6b.dir/build.make CMakeFiles/cmTC_cdb6b.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH'
+        Building C object CMakeFiles/cmTC_cdb6b.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_cdb6b.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH/CheckSymbolExists.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH/CheckSymbolExists.c: In function ‘main’:
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH/CheckSymbolExists.c:8:19: error: ‘_doprnt’ undeclared (first use in this function)
+            8 |   return ((int*)(&_doprnt))[argc];
+              |                   ^~~~~~~
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        make[1]: *** [CMakeFiles/cmTC_cdb6b.dir/build.make:78: CMakeFiles/cmTC_cdb6b.dir/CheckSymbolExists.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4yvPoH'
+        make: *** [Makefile:127: cmTC_cdb6b/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:162 (check_symbol_exists)"
+    checks:
+      - "Looking for snprintf"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a64b2/fast && /usr/bin/make  -f CMakeFiles/cmTC_a64b2.dir/build.make CMakeFiles/cmTC_a64b2.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH'
+        Building C object CMakeFiles/cmTC_a64b2.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_a64b2.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH/CheckSymbolExists.c
+        Linking C executable cmTC_a64b2
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a64b2.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_a64b2.dir/CheckSymbolExists.c.o -o cmTC_a64b2  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-7rFdnH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:164 (check_symbol_exists)"
+    checks:
+      - "Looking for vasprintf"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_VASPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b5094/fast && /usr/bin/make  -f CMakeFiles/cmTC_b5094.dir/build.make CMakeFiles/cmTC_b5094.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK'
+        Building C object CMakeFiles/cmTC_b5094.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_b5094.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK/CheckSymbolExists.c
+        Linking C executable cmTC_b5094
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b5094.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b5094.dir/CheckSymbolExists.c.o -o cmTC_b5094  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-SkGVlK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:165 (check_symbol_exists)"
+    checks:
+      - "Looking for vsnprintf"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_VSNPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_bfd9a/fast && /usr/bin/make  -f CMakeFiles/cmTC_bfd9a.dir/build.make CMakeFiles/cmTC_bfd9a.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K'
+        Building C object CMakeFiles/cmTC_bfd9a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_bfd9a.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K/CheckSymbolExists.c
+        Linking C executable cmTC_bfd9a
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bfd9a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_bfd9a.dir/CheckSymbolExists.c.o -o cmTC_bfd9a  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3jlN9K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:166 (check_symbol_exists)"
+    checks:
+      - "Looking for vprintf"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_VPRINTF"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4be0e/fast && /usr/bin/make  -f CMakeFiles/cmTC_4be0e.dir/build.make CMakeFiles/cmTC_4be0e.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I'
+        Building C object CMakeFiles/cmTC_4be0e.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_4be0e.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I/CheckSymbolExists.c
+        Linking C executable cmTC_4be0e
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4be0e.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4be0e.dir/CheckSymbolExists.c.o -o cmTC_4be0e  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2aDI0I'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:168 (check_symbol_exists)"
+    checks:
+      - "Looking for arc4random"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_ARC4RANDOM"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d0b8d/fast && /usr/bin/make  -f CMakeFiles/cmTC_d0b8d.dir/build.make CMakeFiles/cmTC_d0b8d.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH'
+        Building C object CMakeFiles/cmTC_d0b8d.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_d0b8d.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH/CheckSymbolExists.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH/CheckSymbolExists.c: In function ‘main’:
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH/CheckSymbolExists.c:8:19: error: ‘arc4random’ undeclared (first use in this function); did you mean ‘srandom’?
+            8 |   return ((int*)(&arc4random))[argc];
+              |                   ^~~~~~~~~~
+              |                   srandom
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH/CheckSymbolExists.c:8:19: note: each undeclared identifier is reported only once for each function it appears in
+        make[1]: *** [CMakeFiles/cmTC_d0b8d.dir/build.make:78: CMakeFiles/cmTC_d0b8d.dir/CheckSymbolExists.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-GDZXpH'
+        make: *** [Makefile:127: cmTC_d0b8d/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "CMakeLists.txt:170 (check_include_file)"
+    checks:
+      - "Looking for bsd/stdlib.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_BSD_STDLIB_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d826e/fast && /usr/bin/make  -f CMakeFiles/cmTC_d826e.dir/build.make CMakeFiles/cmTC_d826e.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK'
+        Building C object CMakeFiles/cmTC_d826e.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_d826e.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK/CheckIncludeFile.c
+        Linking C executable cmTC_d826e
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d826e.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_d826e.dir/CheckIncludeFile.c.o -o cmTC_d826e  -lm 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-t0UOoK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:174 (check_symbol_exists)"
+    checks:
+      - "Looking for arc4random"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_ARC4RANDOM"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_fd863/fast && /usr/bin/make  -f CMakeFiles/cmTC_fd863.dir/build.make CMakeFiles/cmTC_fd863.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J'
+        Building C object CMakeFiles/cmTC_fd863.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_fd863.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J/CheckSymbolExists.c
+        Linking C executable cmTC_fd863
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fd863.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_fd863.dir/CheckSymbolExists.c.o -o cmTC_fd863  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MtmS1J'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:182 (check_symbol_exists)"
+    checks:
+      - "Looking for open"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_OPEN"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_ad52f/fast && /usr/bin/make  -f CMakeFiles/cmTC_ad52f.dir/build.make CMakeFiles/cmTC_ad52f.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K'
+        Building C object CMakeFiles/cmTC_ad52f.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_ad52f.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K/CheckSymbolExists.c
+        Linking C executable cmTC_ad52f
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad52f.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_ad52f.dir/CheckSymbolExists.c.o -o cmTC_ad52f  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-x5BM0K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:185 (check_symbol_exists)"
+    checks:
+      - "Looking for realloc"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_REALLOC"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5ff82/fast && /usr/bin/make  -f CMakeFiles/cmTC_5ff82.dir/build.make CMakeFiles/cmTC_5ff82.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K'
+        Building C object CMakeFiles/cmTC_5ff82.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_5ff82.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K/CheckSymbolExists.c
+        Linking C executable cmTC_5ff82
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ff82.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_5ff82.dir/CheckSymbolExists.c.o -o cmTC_5ff82  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-2ruN4K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:188 (check_symbol_exists)"
+    checks:
+      - "Looking for setlocale"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SETLOCALE"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6767a/fast && /usr/bin/make  -f CMakeFiles/cmTC_6767a.dir/build.make CMakeFiles/cmTC_6767a.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ'
+        Building C object CMakeFiles/cmTC_6767a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_6767a.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ/CheckSymbolExists.c
+        Linking C executable cmTC_6767a
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6767a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_6767a.dir/CheckSymbolExists.c.o -o cmTC_6767a  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-d2NhkJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:189 (check_symbol_exists)"
+    checks:
+      - "Looking for uselocale"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_USELOCALE"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_0878d/fast && /usr/bin/make  -f CMakeFiles/cmTC_0878d.dir/build.make CMakeFiles/cmTC_0878d.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH'
+        Building C object CMakeFiles/cmTC_0878d.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_0878d.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH/CheckSymbolExists.c
+        Linking C executable cmTC_0878d
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0878d.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_0878d.dir/CheckSymbolExists.c.o -o cmTC_0878d  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-oYX2jH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:204 (check_symbol_exists)"
+    checks:
+      - "Looking for strcasecmp"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRCASECMP"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_971fa/fast && /usr/bin/make  -f CMakeFiles/cmTC_971fa.dir/build.make CMakeFiles/cmTC_971fa.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH'
+        Building C object CMakeFiles/cmTC_971fa.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_971fa.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH/CheckSymbolExists.c
+        Linking C executable cmTC_971fa
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_971fa.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_971fa.dir/CheckSymbolExists.c.o -o cmTC_971fa  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-QsEvTH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:205 (check_symbol_exists)"
+    checks:
+      - "Looking for strncasecmp"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRNCASECMP"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_8ae37/fast && /usr/bin/make  -f CMakeFiles/cmTC_8ae37.dir/build.make CMakeFiles/cmTC_8ae37.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL'
+        Building C object CMakeFiles/cmTC_8ae37.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_8ae37.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL/CheckSymbolExists.c
+        Linking C executable cmTC_8ae37
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ae37.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_8ae37.dir/CheckSymbolExists.c.o -o cmTC_8ae37  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-ZOe2SL'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:208 (check_symbol_exists)"
+    checks:
+      - "Looking for strdup"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRDUP"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_655b0/fast && /usr/bin/make  -f CMakeFiles/cmTC_655b0.dir/build.make CMakeFiles/cmTC_655b0.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ'
+        Building C object CMakeFiles/cmTC_655b0.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_655b0.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ/CheckSymbolExists.c
+        Linking C executable cmTC_655b0
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_655b0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_655b0.dir/CheckSymbolExists.c.o -o cmTC_655b0  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PNJFfJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:209 (check_symbol_exists)"
+    checks:
+      - "Looking for strerror"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRERROR"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6e36b/fast && /usr/bin/make  -f CMakeFiles/cmTC_6e36b.dir/build.make CMakeFiles/cmTC_6e36b.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH'
+        Building C object CMakeFiles/cmTC_6e36b.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_6e36b.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH/CheckSymbolExists.c
+        Linking C executable cmTC_6e36b
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e36b.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_6e36b.dir/CheckSymbolExists.c.o -o cmTC_6e36b  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-PTW5rH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:212 (check_symbol_exists)"
+    checks:
+      - "Looking for vsyslog"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_VSYSLOG"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9d046/fast && /usr/bin/make  -f CMakeFiles/cmTC_9d046.dir/build.make CMakeFiles/cmTC_9d046.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I'
+        Building C object CMakeFiles/cmTC_9d046.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_9d046.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I/CheckSymbolExists.c
+        Linking C executable cmTC_9d046
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9d046.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_9d046.dir/CheckSymbolExists.c.o -o cmTC_9d046  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-MAAu0I'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:215 (check_symbol_exists)"
+    checks:
+      - "Looking for getrandom"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_GETRANDOM"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_5c786/fast && /usr/bin/make  -f CMakeFiles/cmTC_5c786.dir/build.make CMakeFiles/cmTC_5c786.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K'
+        Building C object CMakeFiles/cmTC_5c786.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_5c786.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K/CheckSymbolExists.c
+        Linking C executable cmTC_5c786
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c786.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_5c786.dir/CheckSymbolExists.c.o -o cmTC_5c786  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-JfKe9K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:218 (check_symbol_exists)"
+    checks:
+      - "Looking for getrusage"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_GETRUSAGE"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_4d1d1/fast && /usr/bin/make  -f CMakeFiles/cmTC_4d1d1.dir/build.make CMakeFiles/cmTC_4d1d1.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J'
+        Building C object CMakeFiles/cmTC_4d1d1.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_4d1d1.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J/CheckSymbolExists.c
+        Linking C executable cmTC_4d1d1
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4d1d1.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_4d1d1.dir/CheckSymbolExists.c.o -o cmTC_4d1d1  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1mrS3J'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:221 (check_symbol_exists)"
+    checks:
+      - "Looking for strtoll"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRTOLL"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_54b0a/fast && /usr/bin/make  -f CMakeFiles/cmTC_54b0a.dir/build.make CMakeFiles/cmTC_54b0a.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK'
+        Building C object CMakeFiles/cmTC_54b0a.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_54b0a.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK/CheckSymbolExists.c
+        Linking C executable cmTC_54b0a
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_54b0a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_54b0a.dir/CheckSymbolExists.c.o -o cmTC_54b0a  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-gpp6tK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:145 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckSymbolExists.cmake:71 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:222 (check_symbol_exists)"
+    checks:
+      - "Looking for strtoull"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STRTOULL"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_30826/fast && /usr/bin/make  -f CMakeFiles/cmTC_30826.dir/build.make CMakeFiles/cmTC_30826.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH'
+        Building C object CMakeFiles/cmTC_30826.dir/CheckSymbolExists.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_30826.dir/CheckSymbolExists.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH/CheckSymbolExists.c
+        Linking C executable cmTC_30826
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_30826.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_30826.dir/CheckSymbolExists.c.o -o cmTC_30826  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-jCI5GH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckIncludeFile.cmake:95 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:254 (check_include_file)"
+      - "CMakeLists.txt:245 (check_type_size)"
+    checks:
+      - "Looking for stddef.h"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_STDDEF_H"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cae7d/fast && /usr/bin/make  -f CMakeFiles/cmTC_cae7d.dir/build.make CMakeFiles/cmTC_cae7d.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH'
+        Building C object CMakeFiles/cmTC_cae7d.dir/CheckIncludeFile.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_cae7d.dir/CheckIncludeFile.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH/CheckIncludeFile.c
+        Linking C executable cmTC_cae7d
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cae7d.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_cae7d.dir/CheckIncludeFile.c.o -o cmTC_cae7d  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O8RSvH'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:245 (check_type_size)"
+    checks:
+      - "Check size of int"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_INT"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_f717f/fast && /usr/bin/make  -f CMakeFiles/cmTC_f717f.dir/build.make CMakeFiles/cmTC_f717f.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ'
+        Building C object CMakeFiles/cmTC_f717f.dir/SIZEOF_INT.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_f717f.dir/SIZEOF_INT.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ/SIZEOF_INT.c
+        Linking C executable cmTC_f717f
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f717f.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_f717f.dir/SIZEOF_INT.c.o -o cmTC_f717f  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-vhWOoJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:246 (check_type_size)"
+    checks:
+      - "Check size of int64_t"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_INT64_T"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_18fb0/fast && /usr/bin/make  -f CMakeFiles/cmTC_18fb0.dir/build.make CMakeFiles/cmTC_18fb0.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ'
+        Building C object CMakeFiles/cmTC_18fb0.dir/SIZEOF_INT64_T.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_18fb0.dir/SIZEOF_INT64_T.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ/SIZEOF_INT64_T.c
+        Linking C executable cmTC_18fb0
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18fb0.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_18fb0.dir/SIZEOF_INT64_T.c.o -o cmTC_18fb0  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-1qvISJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:247 (check_type_size)"
+    checks:
+      - "Check size of long"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_LONG"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_a3355/fast && /usr/bin/make  -f CMakeFiles/cmTC_a3355.dir/build.make CMakeFiles/cmTC_a3355.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK'
+        Building C object CMakeFiles/cmTC_a3355.dir/SIZEOF_LONG.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_a3355.dir/SIZEOF_LONG.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK/SIZEOF_LONG.c
+        Linking C executable cmTC_a3355
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3355.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_a3355.dir/SIZEOF_LONG.c.o -o cmTC_a3355  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-9eD8oK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:248 (check_type_size)"
+    checks:
+      - "Check size of long long"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_LONG_LONG"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d1e5a/fast && /usr/bin/make  -f CMakeFiles/cmTC_d1e5a.dir/build.make CMakeFiles/cmTC_d1e5a.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K'
+        Building C object CMakeFiles/cmTC_d1e5a.dir/SIZEOF_LONG_LONG.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_d1e5a.dir/SIZEOF_LONG_LONG.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K/SIZEOF_LONG_LONG.c
+        Linking C executable cmTC_d1e5a
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d1e5a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_d1e5a.dir/SIZEOF_LONG_LONG.c.o -o cmTC_d1e5a  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-nVpe5K'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:249 (check_type_size)"
+    checks:
+      - "Check size of size_t"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_SIZE_T"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_cb7e9/fast && /usr/bin/make  -f CMakeFiles/cmTC_cb7e9.dir/build.make CMakeFiles/cmTC_cb7e9.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H'
+        Building C object CMakeFiles/cmTC_cb7e9.dir/SIZEOF_SIZE_T.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_cb7e9.dir/SIZEOF_SIZE_T.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H/SIZEOF_SIZE_T.c
+        Linking C executable cmTC_cb7e9
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb7e9.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_cb7e9.dir/SIZEOF_SIZE_T.c.o -o cmTC_cb7e9  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-xsDQ8H'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:148 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckTypeSize.cmake:273 (__check_type_size_impl)"
+      - "CMakeLists.txt:254 (check_type_size)"
+    checks:
+      - "Check size of ssize_t"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_SIZEOF_SSIZE_T"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_1b01a/fast && /usr/bin/make  -f CMakeFiles/cmTC_1b01a.dir/build.make CMakeFiles/cmTC_1b01a.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI'
+        Building C object CMakeFiles/cmTC_1b01a.dir/SIZEOF_SSIZE_T.c.o
+        /usr/bin/cc -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_1b01a.dir/SIZEOF_SSIZE_T.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI/SIZEOF_SSIZE_T.c
+        Linking C executable cmTC_1b01a
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1b01a.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_1b01a.dir/SIZEOF_SSIZE_T.c.o -o cmTC_1b01a  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-3WbnSI'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:257 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAS_GNU_WARNING_LONG"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAS_GNU_WARNING_LONG"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b2464/fast && /usr/bin/make  -f CMakeFiles/cmTC_b2464.dir/build.make CMakeFiles/cmTC_b2464.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK'
+        Building C object CMakeFiles/cmTC_b2464.dir/src.c.o
+        /usr/bin/cc -DHAS_GNU_WARNING_LONG -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_b2464.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c:3:9: warning: missing terminating " character
+            3 | __asm__(".section .gnu.json_object_get
+              |         ^
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c:3:9: error: missing terminating " character
+            3 | __asm__(".section .gnu.json_object_get
+              |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c:4:2: error: expected string literal before ‘.’ token
+            4 |  .ascii "Please link against libjson-c instead of libjson"
+              |  ^
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c:5:7: warning: missing terminating " character
+            5 |  .text");
+              |       ^
+        /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK/src.c:5:7: error: missing terminating " character
+            5 |  .text");
+              |       ^~~
+        make[1]: *** [CMakeFiles/cmTC_b2464.dir/build.make:78: CMakeFiles/cmTC_b2464.dir/src.c.o] Error 1
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-C0aKRK'
+        make: *** [Makefile:127: cmTC_b2464/fast] Error 2
+        
+      exitCode: 2
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:265 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_ATOMIC_BUILTINS"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE_ATOMIC_BUILTINS"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_9aaa9/fast && /usr/bin/make  -f CMakeFiles/cmTC_9aaa9.dir/build.make CMakeFiles/cmTC_9aaa9.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ'
+        Building C object CMakeFiles/cmTC_9aaa9.dir/src.c.o
+        /usr/bin/cc -DHAVE_ATOMIC_BUILTINS -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_9aaa9.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ/src.c
+        Linking C executable cmTC_9aaa9
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9aaa9.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_9aaa9.dir/src.c.o -o cmTC_9aaa9  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-BRGJFJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:270 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE___THREAD"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "HAVE___THREAD"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_b9c70/fast && /usr/bin/make  -f CMakeFiles/cmTC_b9c70.dir/build.make CMakeFiles/cmTC_b9c70.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I'
+        Building C object CMakeFiles/cmTC_b9c70.dir/src.c.o
+        /usr/bin/cc -DHAVE___THREAD -D_GNU_SOURCE  -fPIE -o CMakeFiles/cmTC_b9c70.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I/src.c
+        Linking C executable cmTC_b9c70
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b9c70.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_b9c70.dir/src.c.o -o cmTC_b9c70  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-O9FK5I'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:320 (check_c_source_compiles)"
+    checks:
+      - "Performing Test REENTRANT_WORKS"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "REENTRANT_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_134db/fast && /usr/bin/make  -f CMakeFiles/cmTC_134db.dir/build.make CMakeFiles/cmTC_134db.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J'
+        Building C object CMakeFiles/cmTC_134db.dir/src.c.o
+        /usr/bin/cc -DREENTRANT_WORKS -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  -fPIE -o CMakeFiles/cmTC_134db.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J/src.c
+        Linking C executable cmTC_134db
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_134db.dir/link.txt --verbose=1
+        /usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  CMakeFiles/cmTC_134db.dir/src.c.o -o cmTC_134db  -lm -lbsd 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-4mVZ7J'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:339 (check_c_source_compiles)"
+    checks:
+      - "Performing Test BSYMBOLIC_WORKS"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "BSYMBOLIC_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_e8386/fast && /usr/bin/make  -f CMakeFiles/cmTC_e8386.dir/build.make CMakeFiles/cmTC_e8386.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK'
+        Building C object CMakeFiles/cmTC_e8386.dir/src.c.o
+        /usr/bin/cc -DBSYMBOLIC_WORKS -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  -fPIE -o CMakeFiles/cmTC_e8386.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK/src.c
+        Linking C executable cmTC_e8386
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e8386.dir/link.txt --verbose=1
+        /usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  CMakeFiles/cmTC_e8386.dir/src.c.o -o cmTC_e8386  -lm -lbsd -Wl,-Bsymbolic-functions 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-cDfWxK'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/CheckCSourceCompiles.cmake:76 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:357 (check_c_source_compiles)"
+    checks:
+      - "Performing Test VERSION_SCRIPT_WORKS"
+    directories:
+      source: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI"
+      binary: "/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "VERSION_SCRIPT_WORKS"
+      cached: true
+      stdout: |
+        Change Dir: /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI
+        
+        Run Build Command(s):/home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_d3109/fast && /usr/bin/make  -f CMakeFiles/cmTC_d3109.dir/build.make CMakeFiles/cmTC_d3109.dir/build
+        make[1]: Entering directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI'
+        Building C object CMakeFiles/cmTC_d3109.dir/src.c.o
+        /usr/bin/cc -DVERSION_SCRIPT_WORKS -D_GNU_SOURCE  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  -fPIE -o CMakeFiles/cmTC_d3109.dir/src.c.o -c /workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI/src.c
+        Linking C executable cmTC_d3109
+        /home/codespace/.local/lib/python3.10/site-packages/cmake/data/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d3109.dir/link.txt --verbose=1
+        /usr/bin/cc  -ffunction-sections -fdata-sections -Werror -Wall -Wcast-qual -Wno-error=deprecated-declarations -Wextra -Wwrite-strings -Wno-unused-parameter -Wstrict-prototypes  CMakeFiles/cmTC_d3109.dir/src.c.o -o cmTC_d3109  -lm -lbsd -Wl,--version-script,/workspaces/mc833/jsonc/json-c-build/check-version-script.sym 
+        make[1]: Leaving directory '/workspaces/mc833/jsonc/json-c-build/CMakeFiles/CMakeScratch/TryCompile-rED7DI'
+        
+      exitCode: 0
+...

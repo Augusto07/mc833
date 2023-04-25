@@ -282,12 +282,16 @@ char* get_profile_info(char* email) {
                 const char* habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
 
                 if (strcmp(habilidade, "") != 0) { //se hab não é vazia
-                    char* tmp = malloc(sizeof(char) * 1000);
-                    snprintf(tmp, 1000, " %s,", habilidade); 
-                    strncat(info, tmp, 1000 - strlen(info) - 1);
+                    char* tmp = malloc(sizeof(char) * 100);
+                    strcpy(tmp, "");
+                    strcat(tmp, habilidade);
+                    strcat(tmp, ", ");
+                    strcat(info, tmp);
                     free(tmp);
                 }
             }
+
+            strcat(info, "\n\n");
 
             fclose(file);
             return info;
@@ -354,56 +358,86 @@ char* list_profiles_by_course(char* course){
 
 // listar todas as pessoas (email e nome) formadas em uma determinada habilidade;
 char* list_profiles_by_skill(char *skill){
+    
+    char* response;
+
     FILE *file = fopen(FILENAME, "r");
     if (file == NULL){
-        printf("Error opening file!\n");
-        return NULL;
+        response = "Error, can't open file!\n";
+        return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
+
     if (profiles == NULL){
-        printf("Error reading file!\n");
-        fclose(file);
-        return NULL;
+        response = "Error, can't read file!\n";
+        return response;
     }
 
     profiles = json_object_object_get(profiles, "profiles");
     int n_profiles = json_object_array_length(profiles);
 
-    char *result = malloc(sizeof(char) * 1000);
+    char *result = malloc(sizeof(char) * 5000);
     strcpy(result, "");
 
-    strcat(result, "Perfis com a habilidade ");
+    strcat(result, "Profiles with skill ");
     strcat(result, skill);
     strcat(result, ":\n");
+    strcat(result, "\n");
+
+    printf("entrou\n");
 
     for (int i = 0; i < n_profiles; i++){
+
+        char *preresult = malloc(sizeof(char) * 300);
+        strcpy(preresult, "");
+
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email_ = json_object_object_get(p, "email");
+        json_object *nome_ = json_object_object_get(p, "nome");
         json_object *habilidades_ = json_object_object_get(p, "habilidades");
 
+        strcat(preresult, "Email: ");
+        strcat(preresult, json_object_get_string(email_));
+        strcat(preresult, "\n");
+        strcat(preresult, "Name: ");
+        strcat(preresult, json_object_get_string(nome_));
+        strcat(preresult, "\n");
+        strcat(preresult, "Skill: ");
+
         int n_habilidades = json_object_array_length(habilidades_);
-        int found = 0;
+        int have_skill = 0;
 
         for (int j = 0; j < n_habilidades; j++){
+
             json_object *h = json_object_array_get_idx(habilidades_, j);
 
-            if (strcmp(json_object_get_string(h), skill) == 0){
-                if (found == 0){
-                    strcat(result, "Email: ");
-                    strcat(result, json_object_get_string(email_));
-                    strcat(result, "\n");
-                    strcat(result, "Nome: ");
-                    strcat(result, json_object_get_string(json_object_object_get(p, "nome")));
-                    strcat(result, "\n");
-                    found = 1;
-                }
+            if (strcmp(json_object_get_string(h), "") != 0 &&
+                        strstr(json_object_get_string(h), skill) != NULL){
+                    printf("habilidade %s\n", json_object_get_string(h));
+                    have_skill = 1;
+                    strcat(preresult, json_object_get_string(h));
+                    strcat(preresult, ", ");
             }
         }
+
+        if (have_skill == 1){
+            strcat(result, preresult);
+            strcat(result, "\n\n");
+        }
+        have_skill = 0;
+        free(preresult);
     }
 
-    fclose(file);
-    return result;
+    if (strcmp(result, "") == 0){
+        fclose(file);
+        response = "Profiles not found!\n";
+        return response;
+    }
+    else{
+        fclose(file);
+        return result;
+    }
 }
 
 // listar todas as informações de todos os perfis;

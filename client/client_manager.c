@@ -137,7 +137,10 @@ void general_function(int socket, char* sendmsg){
     memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty
 
     printf("\n");
+    printf("===================================\n");
+    printf("\n");
     printf("%s", response);
+    printf("===================================\n");
     printf("\n");
     return;
 }

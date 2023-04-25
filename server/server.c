@@ -18,6 +18,7 @@
 #define BACKLOG 1 // how many pending connections queue will hold
 #define MAXDATASIZE 1000
 
+
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
 {
@@ -110,7 +111,7 @@ int main(void)
 
                 printf("Received message: %d\n", opt);
                 switch(opt){
-                    case 1:
+                    case 1: ;
                         perfil profile;
                         fill_profile(new_fd, &profile);
                         response = create_profile(&profile);
@@ -148,6 +149,12 @@ int main(void)
                     break;
 
                     case 5:
+                        receive_message(new_fd, message);
+                        response = list_profiles_by_skill(message);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
+                        memset(message, 0, sizeof(message)); // reset to empty
                     break;
 
                     case 6:
