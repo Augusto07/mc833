@@ -14,7 +14,7 @@
 #include "../model/profile.h"
 #include <json-c/json.h>
 
-#define MAX_LEN_RCV 1000
+#define MAX_LEN_RCV 5000
 
 void receive_message(int socket, char* message){
 
@@ -131,7 +131,7 @@ void create_profile(int socket) {
 
 void general_function(int socket, char* sendmsg){
     
-    char response[50];
+    char response[MAX_LEN_RCV];
     send_message(socket, sendmsg);
     receive_message(socket, response);
     memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty
@@ -155,8 +155,12 @@ int get_option(){
     printf("8: Exit\n");
     printf("\n");
 
-    scanf("%d", &opt);
-    return opt;
+    if (scanf("%d", &opt) == 1){
+        return opt;
+    }
+    else{
+        return 8;
+    }
 }
 
 // get sockaddr, IPv4 or IPv6:

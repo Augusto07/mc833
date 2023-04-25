@@ -150,7 +150,7 @@ char* create_profile(perfil *profile){
         if (strcmp(json_object_get_string(email), profile->email) == 0){
             fclose(file);
             json_object_put(profiles);
-            response = "Error, profile already exists\n";
+            response = "Error, profile with that email already exists!\n";
             return response;
         }
     }
@@ -301,19 +301,21 @@ char* get_profile_info(char* email) {
 
 // listar todas as pessoas (email e nome) formadas em um determinado curso;
 char* list_profiles_by_course(char* course){
-    FILE *file = fopen(FILENAME, "r");
-    if (file == NULL){
-        printf("Error opening file!\n");
-        return NULL;
+
+    char *response;
+
+    FILE* file = fopen(FILENAME, "r");
+    if (file == NULL) {
+        response = "Error, can't open file!\n";
+        return response;
     }
 
-    json_object *profiles = json_object_from_file(FILENAME);
-    if (profiles == NULL){
-        printf("Error reading file!\n");
+    json_object* profiles = json_object_from_file(FILENAME);
+    if (profiles == NULL) {
         fclose(file);
-        return NULL;
+        response = "Error, can't read file!\n";
+        return response;
     }
-
     // get the profiles array
     json_object *profiles_array = json_object_object_get(profiles, "profiles");
 
@@ -322,23 +324,32 @@ char* list_profiles_by_course(char* course){
     // allocate memory for the output string
     char* output = malloc(sizeof(char) * 10000);
     output[0] = '\0';
+    int count = 0; //count number of profiles found
 
     for (int i = 0; i < n_profiles; i++){
         json_object *profile = json_object_array_get_idx(profiles_array, i);
 
         // check if the profile matches the course
         json_object *formacao_academica = json_object_object_get(profile, "formacao_academica");
-        if (formacao_academica != NULL && strcmp(json_object_get_string(formacao_academica), course) == 0)
-        {
+
+        if (formacao_academica != NULL && strcmp(json_object_get_string(formacao_academica), course) == 0){
             // concatenate email, name, and course into the output string
+            count++;
             json_object *email = json_object_object_get(profile, "email");
             json_object *nome = json_object_object_get(profile, "nome");
-            sprintf(output + strlen(output), "Email: %s, Nome: %s, Curso: %s\n", json_object_get_string(email), json_object_get_string(nome), course);
+            sprintf(output + strlen(output), "Profile %d - Email: %s, Name: %s, Course: %s\n", count, json_object_get_string(email), json_object_get_string(nome), course);
         }
     }
 
-    fclose(file);
-    return output;
+    if (strcmp(output, "") == 0){
+        fclose(file);
+        response = "Profiles not found!\n";
+        return response;
+    }
+    else{
+        fclose(file);
+        return output;
+    }
 }
 
 // listar todas as pessoas (email e nome) formadas em uma determinada habilidade;

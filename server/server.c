@@ -139,6 +139,12 @@ int main(void)
                     break;
 
                     case 4:
+                        receive_message(new_fd, message);
+                        response = list_profiles_by_course(message);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
+                        memset(message, 0, sizeof(message)); // reset to empty
                     break;
 
                     case 5:
@@ -149,6 +155,10 @@ int main(void)
 
                     case 7:
                     break;
+
+                    default:
+                        printf("Invalid option!\n");
+
                 }
             }
             if (numbytes == -1) {
