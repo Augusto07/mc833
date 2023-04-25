@@ -327,8 +327,12 @@ char* list_profiles_by_course(char* course){
 
     // allocate memory for the output string
     char* output = malloc(sizeof(char) * 10000);
-    output[0] = '\0';
-    int count = 0; //count number of profiles found
+    strcpy(output, "");
+
+    strcat(output, "Profiles with course ");
+    strcat(output, course);
+    strcat(output, ":\n");
+    strcat(output, "\n");
 
     for (int i = 0; i < n_profiles; i++){
         json_object *profile = json_object_array_get_idx(profiles_array, i);
@@ -338,10 +342,17 @@ char* list_profiles_by_course(char* course){
 
         if (formacao_academica != NULL && strcmp(json_object_get_string(formacao_academica), course) == 0){
             // concatenate email, name, and course into the output string
-            count++;
             json_object *email = json_object_object_get(profile, "email");
             json_object *nome = json_object_object_get(profile, "nome");
-            sprintf(output + strlen(output), "Profile %d - Email: %s, Name: %s, Course: %s\n", count, json_object_get_string(email), json_object_get_string(nome), course);
+            strcat(output, "Email: ");
+            strcat(output, json_object_get_string(email));
+            strcat(output, "\n");
+            strcat(output, "Name: ");
+            strcat(output, json_object_get_string(nome));
+            strcat(output, "\n");
+            strcat(output, "Course: ");
+            strcat(output, course);
+            strcat(output, "\n\n");
         }
     }
 
@@ -505,31 +516,29 @@ char* get_all_profiles(){
 }
 
 // listar todas as pessoas (email, nome e curso) formadas em um determinado ano;
-char* list_profiles_by_year(int year)
-{
+char* list_profiles_by_year(char* year){
+
+    char* response;
     FILE *file = fopen(FILENAME, "r");
-    if (file == NULL)
-    {
-        printf("Error opening file!\n");
-        return NULL;
+
+    if (file == NULL){
+        response = "Error, can't open file!\n";
+        return response;
     }
 
     json_object *profiles_obj = json_object_from_file(FILENAME);
-    if (profiles_obj == NULL)
-    {
-        printf("Error reading file!\n");
+
+    if (profiles_obj == NULL){
         fclose(file);
-        return NULL;
+        response = "Error, can't read file!\n";
+        return response;
     }
 
     char *profiles = malloc(10000 * sizeof(char)); // allocate memory for the profiles string
-    profiles[0] = '\0'; // initialize the string to an empty string
-
-    strcat(profiles, "Perfis com a formacao em ");
-    char year_str[5];
-    sprintf(year_str, "%d", year);
-    strcat(profiles, year_str);
-    strcat(profiles, ":\n");
+    strcpy(profiles, ""); // initialize the string to an empty string
+    strcat(profiles, "Profiles graduated in ");
+    strcat(profiles, year);
+    strcat(profiles, ":\n\n");
 
     // concatenate the profiles
     json_object *profiles_array = json_object_object_get(profiles_obj, "profiles");
@@ -540,8 +549,7 @@ char* list_profiles_by_year(int year)
         json_object *profile = json_object_array_get_idx(profiles_array, i);
         int profile_year = json_object_get_int(json_object_object_get(profile, "ano_de_formatura"));
 
-        if (profile_year == year)
-        {
+        if (profile_year == atoi(year)){
             strcat(profiles, "Email: ");
             strcat(profiles, json_object_get_string(json_object_object_get(profile, "email")));
             strcat(profiles, "\n");
@@ -554,7 +562,14 @@ char* list_profiles_by_year(int year)
         }
     }
 
-    fclose(file);
-    return profiles;
+    if (strcmp(profiles, "") == 0){
+        fclose(file);
+        response = "Profiles not found!\n";
+        return response;
+    }
+    else{
+        fclose(file);
+        return profiles;
+    }
 }
 

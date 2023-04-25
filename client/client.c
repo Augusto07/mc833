@@ -78,31 +78,31 @@ int main(int argc, char *argv[]){
 
                     case 2:
                         printf("Insert profile email:\n");
-                        scanf("%s", str);
+                        scanf(" %[^\n]", str);
                         general_function(sockfd, str);
                     break;
 
                     case 3:
                         printf("Insert profile email:\n");
-                        scanf("%s", str);
+                        scanf(" %[^\n]", str);
                         general_function(sockfd, str);
                     break;
 
                     case 4:
                         printf("Insert course:\n");
-                        scanf("%s", str);
+                        scanf(" %[^\n]", str);
                         general_function(sockfd, str);
                     break;
 
                     case 5:
                         printf("Insert skill:\n");
-                        scanf("%s", str);
+                        scanf(" %[^\n]", str);
                         general_function(sockfd, str);
                     break;
 
                     case 6:
                         printf("Insert graduation year:\n");
-                        scanf("%s", str);
+                        scanf(" %[^\n]", str);
                         general_function(sockfd, str);
                     break;
 

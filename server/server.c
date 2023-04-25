@@ -156,8 +156,14 @@ int main(void)
                         response = NULL;
                         memset(message, 0, sizeof(message)); // reset to empty
                     break;
-
+    
                     case 6:
+                        receive_message(new_fd, message);
+                        response = list_profiles_by_year(message);
+                        printf("%s", response);
+                        send_message(new_fd, response);
+                        response = NULL;
+                        memset(message, 0, sizeof(message)); // reset to empty
                     break;
 
                     case 7:
