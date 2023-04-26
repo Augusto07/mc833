@@ -11,18 +11,20 @@
 #include "../model/profile.h"
 #include "client_manager.c"
 
-#define PORT "1969" // the port client will be connecting to 
-#define MAXDATASIZE 100 // max number of bytes we can get at once 
+#define PORT "1969"     // the port client will be connecting to
+#define MAXDATASIZE 100 // max number of bytes we can get at once
 
-int main(int argc, char *argv[]){
-    int sockfd, numbytes;  
+int main(int argc, char *argv[])
+{
+    int sockfd, numbytes;
     char buf[MAXDATASIZE];
     struct addrinfo hints, *servinfo, *p;
     int rv;
     char s[INET6_ADDRSTRLEN];
 
-    if (argc != 2) {
-        fprintf(stderr,"usage: client hostname\n");
+    if (argc != 2)
+    {
+        fprintf(stderr, "usage: client hostname\n");
         exit(1);
     }
 
@@ -30,20 +32,24 @@ int main(int argc, char *argv[]){
     hints.ai_family = AF_UNSPEC;
     hints.ai_socktype = SOCK_STREAM;
 
-    if ((rv = getaddrinfo(argv[1], PORT, &hints, &servinfo)) != 0) {
+    if ((rv = getaddrinfo(argv[1], PORT, &hints, &servinfo)) != 0)
+    {
         fprintf(stderr, "getaddrinfo: %s\n", gai_strerror(rv));
         return 1;
     }
 
     // loop through all the results and connect to the first we can
-    for(p = servinfo; p != NULL; p = p->ai_next) {
+    for (p = servinfo; p != NULL; p = p->ai_next)
+    {
         if ((sockfd = socket(p->ai_family, p->ai_socktype,
-                p->ai_protocol)) == -1) {
+                             p->ai_protocol)) == -1)
+        {
             perror("client: socket");
             continue;
         }
 
-        if (connect(sockfd, p->ai_addr, p->ai_addrlen) == -1) {
+        if (connect(sockfd, p->ai_addr, p->ai_addrlen) == -1)
+        {
             close(sockfd);
             perror("client: connect");
             continue;
@@ -51,7 +57,8 @@ int main(int argc, char *argv[]){
         break;
     }
 
-    if (p == NULL) {
+    if (p == NULL)
+    {
         fprintf(stderr, "client: failed to connect\n");
         return 2;
     }
@@ -65,57 +72,61 @@ int main(int argc, char *argv[]){
     printf("\n");
     printf("Hello! Choose your option!\n");
 
-    while (option != 8){
+    while (option != 8)
+    {
         option = get_option();
         int bytes_sent = send(sockfd, &option, sizeof(option), 0);
         char str[50];
-        switch(option){
-                    case 1:
-                        printf("\n");
-                        create_profile(sockfd);
-                        printf("\n");
-                    break;
+        switch (option)
+        {
+        case 1:
+            printf("\n");
+            create_profile(sockfd);
+            printf("\n");
+            break;
 
-                    case 2:
-                        printf("Insert profile email:\n");
-                        scanf(" %[^\n]", str);
-                        general_function(sockfd, str);
-                    break;
+        case 2:
+            printf("Insert profile email:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
 
-                    case 3:
-                        printf("Insert profile email:\n");
-                        scanf(" %[^\n]", str);
-                        general_function(sockfd, str);
-                    break;
+        case 3:
+            printf("Insert profile email:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
 
-                    case 4:
-                        printf("Insert course:\n");
-                        scanf(" %[^\n]", str);
-                        general_function(sockfd, str);
-                    break;
+        case 4:
+            printf("Insert course:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
 
-                    case 5:
-                        printf("Insert skill:\n");
-                        scanf(" %[^\n]", str);
-                        general_function(sockfd, str);
-                    break;
+        case 5:
+            printf("Insert skill:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
 
-                    case 6:
-                        printf("Insert graduation year:\n");
-                        scanf(" %[^\n]", str);
-                        general_function(sockfd, str);
-                    break;
+        case 6:
+            printf("Insert graduation year:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
 
-                    case 7:
-                        general_function(sockfd, str);
-                    break;
-                    
-                    case 8:
-                    break;
+        case 7:
+            printf("Profiles:\n");
+            general_function(sockfd, str);
 
-                    default:
-                        printf("\n Insert a valid option! \n");
-                }
+            break;
+
+        case 8:
+            break;
+
+        default:
+            printf("\n Insert a valid option! \n");
+        }
     }
 
     close(sockfd);
