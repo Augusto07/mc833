@@ -14,48 +14,59 @@
 #include "../model/profile.h"
 #include <json-c/json.h>
 
-#define MAX_LEN_RCV 5000
+#define MAX_LEN_RCV 8192
 
-void receive_message(int socket, char* message){
+void receive_message(int socket, char *message)
+{
 
-    while(1){
-        int received = recv(socket, message, MAX_LEN_RCV-1, 0); //receive msg
+    while (1)
+    {
+        int received = recv(socket, message, MAX_LEN_RCV - 1, 0); // receive msg
 
-        if (received == -1) {
+        if (received == -1)
+        {
             perror("Error receiving");
             return;
         }
-        else if (received > MAX_LEN_RCV - 1){ //if overflow max defined
+        else if (received > MAX_LEN_RCV - 1)
+        { // if overflow max defined
             perror("Error word is too long");
             return;
         }
-        else if (received >= 0){ //ok
+        else if (received >= 0)
+        { // ok
             message[received] = '\0';
             return;
         }
     }
 }
 
-void send_message(int socket, char* message){
+void send_message(int socket, char *message)
+{
 
-    if (strlen(message) > MAX_LEN_RCV - 1){
+    if (strlen(message) > MAX_LEN_RCV - 1)
+    {
         perror("String is too big");
         return;
     }
 
-    while(1){
+    while (1)
+    {
         int sent = send(socket, message, strlen(message), 0);
-        if (sent == -1) {
+        if (sent == -1)
+        {
             perror("Error sending");
             return;
         }
-        else if (sent >= 0){
+        else if (sent >= 0)
+        {
             return;
         }
     }
 }
 
-void create_profile(int socket) {
+void create_profile(int socket)
+{
     char buffer[512];
     char message[50];
     int year;
@@ -105,7 +116,7 @@ void create_profile(int socket) {
     send_message(socket, buffer);
 
     // Get skills
-    
+
     receive_message(socket, message);
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
@@ -129,8 +140,9 @@ void create_profile(int socket) {
     return;
 }
 
-void general_function(int socket, char* sendmsg){
-    
+void general_function(int socket, char *sendmsg)
+{
+
     char response[MAX_LEN_RCV];
     send_message(socket, sendmsg);
     receive_message(socket, response);
@@ -145,7 +157,8 @@ void general_function(int socket, char* sendmsg){
     return;
 }
 
-int get_option(){
+int get_option()
+{
     int opt;
     printf("\n");
     printf("1: Create profile \n");
@@ -158,10 +171,12 @@ int get_option(){
     printf("8: Exit\n");
     printf("\n");
 
-    if (scanf("%d", &opt) == 1){
+    if (scanf("%d", &opt) == 1)
+    {
         return opt;
     }
-    else{
+    else
+    {
         return 8;
     }
 }
@@ -169,9 +184,10 @@ int get_option(){
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
 {
-    if (sa->sa_family == AF_INET) {
-        return &(((struct sockaddr_in*)sa)->sin_addr);
+    if (sa->sa_family == AF_INET)
+    {
+        return &(((struct sockaddr_in *)sa)->sin_addr);
     }
 
-    return &(((struct sockaddr_in6*)sa)->sin6_addr);
+    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
 }
