@@ -15,22 +15,27 @@
 #include <json-c/json.h>
 
 #define FILENAME "../json/perfil.json"
-#define MAX_LEN_RCV 1000
+#define MAX_LEN_RCV 8192
 
-void receive_message(int socket, char* message){
+void receive_message(int socket, char *message)
+{
 
-    while(1){
-        int received = recv(socket, message, MAX_LEN_RCV-1, 0); //receive msg
+    while (1)
+    {
+        int received = recv(socket, message, MAX_LEN_RCV - 1, 0); // receive msg
 
-        if (received == -1) {
+        if (received == -1)
+        {
             perror("Error receiving");
             return;
         }
-        else if (received > MAX_LEN_RCV - 1){ //if overflow max defined
+        else if (received > MAX_LEN_RCV - 1)
+        { // if overflow max defined
             perror("Error word is too long");
             return;
         }
-        else if (received >= 0){ //ok
+        else if (received >= 0)
+        { // ok
             message[received] = '\0';
             printf("Received: %s\n", message);
             return;
@@ -38,55 +43,61 @@ void receive_message(int socket, char* message){
     }
 }
 
-void send_message(int socket, char* message){
+void send_message(int socket, char *message)
+{
 
-    if (strlen(message) > MAX_LEN_RCV - 1){
+    if (strlen(message) > MAX_LEN_RCV - 1)
+    {
         perror("String is too big");
         return;
     }
 
-    while(1){
+    while (1)
+    {
         int sent = send(socket, message, strlen(message), 0);
-        if (sent == -1) {
+        if (sent == -1)
+        {
             perror("Error sending");
             return;
         }
-        else if (sent >= 0){
+        else if (sent >= 0)
+        {
             return;
         }
     }
 }
 
-//preenche a struct profile com dados do cliente
-void fill_profile(int socket, perfil* profile){
+// preenche a struct profile com dados do cliente
+void fill_profile(int socket, perfil *profile)
+{
 
     char email[50], nome[50], sobrenome[100], residencia[100], formacaoacademica[100], habilidades[510], anodeformatura[5];
 
-    //email
+    // email
     send_message(socket, "Insert email: \n");
     receive_message(socket, email);
 
-    //name
+    // name
     send_message(socket, "Insert name: \n");
     receive_message(socket, nome);
 
-    //sobrenome
+    // sobrenome
     send_message(socket, "Insert last name: \n");
     receive_message(socket, sobrenome);
 
-    //residencia
+    // residencia
     send_message(socket, "Insert residence: \n");
     receive_message(socket, residencia);
 
-    //formacaoacademica
+    // formacaoacademica
     send_message(socket, "Insert academic formation: \n");
     receive_message(socket, formacaoacademica);
 
-    //habilidades
+    // habilidades
     send_message(socket, "Insert skills separated by comma (skill1,skill2...): \n");
     receive_message(socket, habilidades);
 
-    //anodeformatura
+    // anodeformatura
     send_message(socket, "Insert graduation year: \n");
     receive_message(socket, anodeformatura);
 
@@ -98,12 +109,15 @@ void fill_profile(int socket, perfil* profile){
     strcpy(profile->formacaoacademica, formacaoacademica);
     strcpy(profile->habilidades[0], strtok(habilidades, ","));
 
-    for (int i = 1; i < 10; i++){
-        char* token = strtok(NULL, ",");
-        if (token != NULL){
+    for (int i = 1; i < 10; i++)
+    {
+        char *token = strtok(NULL, ",");
+        if (token != NULL)
+        {
             strcpy(profile->habilidades[i], token);
         }
-        else {
+        else
+        {
             strcpy(profile->habilidades[i], "");
         }
     }
@@ -114,25 +128,29 @@ void fill_profile(int socket, perfil* profile){
 //==================FUNCTIONS TO BE PERFORMED BY THE SERVER==================
 
 // cadastrar um novo perfil utilizando o email como identificador;
-char* create_profile(perfil *profile){
+char *create_profile(perfil *profile)
+{
 
-    char* response;
+    char *response;
 
-    if (profile == NULL){
+    if (profile == NULL)
+    {
         response = "Error, profile is NULL!\n";
         return response;
     }
 
     FILE *file = fopen(FILENAME, "r");
 
-    if (file == NULL){
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
 
-    if (profiles == NULL){
+    if (profiles == NULL)
+    {
         response = "Error, can't read file!\n";
         return response;
     }
@@ -147,7 +165,8 @@ char* create_profile(perfil *profile){
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email), profile->email) == 0){
+        if (strcmp(json_object_get_string(email), profile->email) == 0)
+        {
             fclose(file);
             json_object_put(profiles);
             response = "Error, profile with that email already exists!\n";
@@ -165,7 +184,8 @@ char* create_profile(perfil *profile){
     json_object_object_add(new_profile, "ano_de_formatura", json_object_new_int(profile->anodeformatura));
     json_object *habilidades_array = json_object_new_array();
 
-    for (int i = 0; i < 10; i++){
+    for (int i = 0; i < 10; i++)
+    {
         json_object_array_add(habilidades_array, json_object_new_string(profile->habilidades[i]));
     }
 
@@ -178,7 +198,8 @@ char* create_profile(perfil *profile){
 
     json_object_object_add(new_profiles, "profiles", profiles);
 
-    if (json_object_to_file(FILENAME, new_profiles) == -1){
+    if (json_object_to_file(FILENAME, new_profiles) == -1)
+    {
         fclose(file);
         json_object_put(new_profiles);
         response = "Error, can't write file!\n";
@@ -191,20 +212,23 @@ char* create_profile(perfil *profile){
 }
 
 // remover um perfil a partir de seu identificador (email);
-char* delete_profile(char *email){
+char *delete_profile(char *email)
+{
 
     char *response;
 
     FILE *file = fopen(FILENAME, "r");
 
-    if (file == NULL){
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
 
-    if (profiles == NULL){
+    if (profiles == NULL)
+    {
         fclose(file);
         response = "Error, can't read file!\n";
         return response;
@@ -216,11 +240,13 @@ char* delete_profile(char *email){
 
     int n_profiles = json_object_array_length(profiles);
 
-    for (int i = 0; i < n_profiles; i++){
+    for (int i = 0; i < n_profiles; i++)
+    {
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email_ = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email_), email) == 0){
+        if (strcmp(json_object_get_string(email_), email) == 0)
+        {
             json_object_array_del_idx(profiles, i, 1);
             json_object *new_profiles = json_object_new_object();
             json_object_object_add(new_profiles, "profiles", profiles);
@@ -243,17 +269,20 @@ char* delete_profile(char *email){
 }
 
 // dado o email de um perfil, retornar suas informações;
-char* get_profile_info(char* email) {
+char *get_profile_info(char *email)
+{
     char *response;
 
-    FILE* file = fopen(FILENAME, "r");
-    if (file == NULL) {
+    FILE *file = fopen(FILENAME, "r");
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
-    json_object* profiles = json_object_from_file(FILENAME);
-    if (profiles == NULL) {
+    json_object *profiles = json_object_from_file(FILENAME);
+    if (profiles == NULL)
+    {
         fclose(file);
         response = "Error, can't read file!\n";
         return response;
@@ -262,27 +291,31 @@ char* get_profile_info(char* email) {
     profiles = json_object_object_get(profiles, "profiles");
     int n_profiles = json_object_array_length(profiles);
 
-    for (int i = 0; i < n_profiles; i++) {
+    for (int i = 0; i < n_profiles; i++)
+    {
 
-        json_object* p = json_object_array_get_idx(profiles, i);
-        json_object* email_ = json_object_object_get(p, "email");
+        json_object *p = json_object_array_get_idx(profiles, i);
+        json_object *email_ = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email_), email) == 0) {
+        if (strcmp(json_object_get_string(email_), email) == 0)
+        {
 
-            char* info = malloc(sizeof(char) * 1000);
-            snprintf(info, 1000, "Email: %s\nNome: %s\nSobrenome: %s\nResidencia: %s\nFormacao Academica: %s\nAno de Formatura: %d\nHabilidades: ", 
-                json_object_get_string(email_), json_object_get_string(json_object_object_get(p, "nome")),
-                json_object_get_string(json_object_object_get(p, "sobrenome")), json_object_get_string(json_object_object_get(p, "residencia")),
-                json_object_get_string(json_object_object_get(p, "formacao_academica")), json_object_get_int(json_object_object_get(p, "ano_de_formatura")));
+            char *info = malloc(sizeof(char) * 1000);
+            snprintf(info, 1000, "Email: %s\nNome: %s\nSobrenome: %s\nResidencia: %s\nFormacao Academica: %s\nAno de Formatura: %d\nHabilidades: ",
+                     json_object_get_string(email_), json_object_get_string(json_object_object_get(p, "nome")),
+                     json_object_get_string(json_object_object_get(p, "sobrenome")), json_object_get_string(json_object_object_get(p, "residencia")),
+                     json_object_get_string(json_object_object_get(p, "formacao_academica")), json_object_get_int(json_object_object_get(p, "ano_de_formatura")));
 
-            json_object* habilidades_array = json_object_object_get(p, "habilidades");
+            json_object *habilidades_array = json_object_object_get(p, "habilidades");
             int n_habilidades = json_object_array_length(habilidades_array);
 
-            for (int i = 0; i < n_habilidades; i++) {
-                const char* habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
+            for (int i = 0; i < n_habilidades; i++)
+            {
+                const char *habilidade = json_object_get_string(json_object_array_get_idx(habilidades_array, i));
 
-                if (strcmp(habilidade, "") != 0) { //se hab não é vazia
-                    char* tmp = malloc(sizeof(char) * 100);
+                if (strcmp(habilidade, "") != 0)
+                { // se hab não é vazia
+                    char *tmp = malloc(sizeof(char) * 100);
                     strcpy(tmp, "");
                     strcat(tmp, habilidade);
                     strcat(tmp, ", ");
@@ -304,18 +337,21 @@ char* get_profile_info(char* email) {
 }
 
 // listar todas as pessoas (email e nome) formadas em um determinado curso;
-char* list_profiles_by_course(char* course){
+char *list_profiles_by_course(char *course)
+{
 
     char *response;
 
-    FILE* file = fopen(FILENAME, "r");
-    if (file == NULL) {
+    FILE *file = fopen(FILENAME, "r");
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
-    json_object* profiles = json_object_from_file(FILENAME);
-    if (profiles == NULL) {
+    json_object *profiles = json_object_from_file(FILENAME);
+    if (profiles == NULL)
+    {
         fclose(file);
         response = "Error, can't read file!\n";
         return response;
@@ -326,7 +362,7 @@ char* list_profiles_by_course(char* course){
     int n_profiles = json_object_array_length(profiles_array);
 
     // allocate memory for the output string
-    char* output = malloc(sizeof(char) * 10000);
+    char *output = malloc(sizeof(char) * 10000);
     strcpy(output, "");
 
     strcat(output, "Profiles with course ");
@@ -334,13 +370,15 @@ char* list_profiles_by_course(char* course){
     strcat(output, ":\n");
     strcat(output, "\n");
 
-    for (int i = 0; i < n_profiles; i++){
+    for (int i = 0; i < n_profiles; i++)
+    {
         json_object *profile = json_object_array_get_idx(profiles_array, i);
 
         // check if the profile matches the course
         json_object *formacao_academica = json_object_object_get(profile, "formacao_academica");
 
-        if (formacao_academica != NULL && strcmp(json_object_get_string(formacao_academica), course) == 0){
+        if (formacao_academica != NULL && strcmp(json_object_get_string(formacao_academica), course) == 0)
+        {
             // concatenate email, name, and course into the output string
             json_object *email = json_object_object_get(profile, "email");
             json_object *nome = json_object_object_get(profile, "nome");
@@ -356,31 +394,36 @@ char* list_profiles_by_course(char* course){
         }
     }
 
-    if (strcmp(output, "") == 0){
+    if (strcmp(output, "") == 0)
+    {
         fclose(file);
         response = "Profiles not found!\n";
         return response;
     }
-    else{
+    else
+    {
         fclose(file);
         return output;
     }
 }
 
 // listar todas as pessoas (email e nome) formadas em uma determinada habilidade;
-char* list_profiles_by_skill(char *skill){
-    
-    char* response;
+char *list_profiles_by_skill(char *skill)
+{
+
+    char *response;
 
     FILE *file = fopen(FILENAME, "r");
-    if (file == NULL){
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
     json_object *profiles = json_object_from_file(FILENAME);
 
-    if (profiles == NULL){
+    if (profiles == NULL)
+    {
         response = "Error, can't read file!\n";
         return response;
     }
@@ -398,7 +441,8 @@ char* list_profiles_by_skill(char *skill){
 
     printf("entrou\n");
 
-    for (int i = 0; i < n_profiles; i++){
+    for (int i = 0; i < n_profiles; i++)
+    {
 
         char *preresult = malloc(sizeof(char) * 300);
         strcpy(preresult, "");
@@ -419,20 +463,23 @@ char* list_profiles_by_skill(char *skill){
         int n_habilidades = json_object_array_length(habilidades_);
         int have_skill = 0;
 
-        for (int j = 0; j < n_habilidades; j++){
+        for (int j = 0; j < n_habilidades; j++)
+        {
 
             json_object *h = json_object_array_get_idx(habilidades_, j);
 
             if (strcmp(json_object_get_string(h), "") != 0 &&
-                        strstr(json_object_get_string(h), skill) != NULL){
-                    printf("habilidade %s\n", json_object_get_string(h));
-                    have_skill = 1;
-                    strcat(preresult, json_object_get_string(h));
-                    strcat(preresult, ", ");
+                strstr(json_object_get_string(h), skill) != NULL)
+            {
+                printf("habilidade %s\n", json_object_get_string(h));
+                have_skill = 1;
+                strcat(preresult, json_object_get_string(h));
+                strcat(preresult, ", ");
             }
         }
 
-        if (have_skill == 1){
+        if (have_skill == 1)
+        {
             strcat(result, preresult);
             strcat(result, "\n\n");
         }
@@ -440,102 +487,112 @@ char* list_profiles_by_skill(char *skill){
         free(preresult);
     }
 
-    if (strcmp(result, "") == 0){
+    if (strcmp(result, "") == 0)
+    {
         fclose(file);
         response = "Profiles not found!\n";
         return response;
     }
-    else{
+    else
+    {
         fclose(file);
         return result;
     }
 }
 
 // listar todas as informações de todos os perfis;
-char* get_all_profiles(){
-    char* profiles = malloc(10000 * sizeof(char)); // allocate memory for the char array
-    memset(profiles, 0, 10000); // initialize the array with null bytes
+char *get_all_profiles()
+{
+    char *response;
 
-    FILE* file = fopen(FILENAME, "r");
-
-    if (file == NULL){
-        printf("Error opening file!\n");
-        free(profiles); // free memory before returning
-        return NULL;
+    FILE *file = fopen(FILENAME, "r");
+    if (file == NULL)
+    {
+        response = "Error, can't open file!\n";
+        return response;
     }
 
-    json_object* root = json_object_from_file(FILENAME);
-    if (root == NULL){
-        printf("Error reading file!\n");
+    json_object *profiles_obj = json_object_from_file(FILENAME);
+    if (profiles_obj == NULL)
+    {
         fclose(file);
-        free(profiles); // free memory before returning
-        return NULL;
+        response = "Error, can't read file!\n";
+        return response;
     }
 
-    json_object* profiles_array = json_object_object_get(root, "profiles");
+    json_object *profiles_array = json_object_object_get(profiles_obj, "profiles");
     int n_profiles = json_object_array_length(profiles_array);
+    response = malloc(10000 * sizeof(char));
+    strcpy(response, "");
 
-    for (int i = 0; i < n_profiles; i++){
-        json_object* profile = json_object_array_get_idx(profiles_array, i);
-        char email[100], nome[100], sobrenome[100], residencia[100], formacao[100], habilidades[1000];
-        int ano_formatura;
+    for (int i = 0; i < n_profiles; i++)
+    {
+        json_object *profile = json_object_array_get_idx(profiles_array, i);
+        json_object *email = json_object_object_get(profile, "email");
+        json_object *nome = json_object_object_get(profile, "nome");
+        json_object *sobrenome = json_object_object_get(profile, "sobrenome");
+        json_object *residencia = json_object_object_get(profile, "residencia");
+        json_object *formacao_academica = json_object_object_get(profile, "formacao_academica");
+        json_object *ano_de_formatura = json_object_object_get(profile, "ano_de_formatura");
+        json_object *habilidades = json_object_object_get(profile, "habilidades");
 
-        // get the values of each field in the profile object
-        sprintf(email, "Email: %s\n", json_object_get_string(json_object_object_get(profile, "email")));
-        sprintf(nome, "Nome: %s\n", json_object_get_string(json_object_object_get(profile, "nome")));
-        sprintf(sobrenome, "Sobrenome: %s\n", json_object_get_string(json_object_object_get(profile, "sobrenome")));
-        sprintf(residencia, "Residência: %s\n", json_object_get_string(json_object_object_get(profile, "residencia")));
-        sprintf(formacao, "Formação Acadêmica: %s\n", json_object_get_string(json_object_object_get(profile, "formacao_academica")));
-        ano_formatura = json_object_get_int(json_object_object_get(profile, "ano_de_formatura"));
+        char *info = malloc(100000 * sizeof(char));
+        snprintf(info, 1000, "Email: %s\nNome: %s\nSobrenome: %s\nResidencia: %s\nFormacao Academica: %s\nAno de Formatura: %d\nHabilidades: ",
+                 json_object_get_string(email), json_object_get_string(nome), json_object_get_string(sobrenome),
+                 json_object_get_string(residencia), json_object_get_string(formacao_academica), json_object_get_int(ano_de_formatura));
 
-        json_object* habilidades_array = json_object_object_get(profile, "habilidades");
-        int n_habilidades = json_object_array_length(habilidades_array);
-
-        memset(habilidades, 0, sizeof(habilidades)); // initialize the habilidades array with null bytes
-        for (int j = 0; j < n_habilidades; j++){
-            if (json_object_array_get_idx(habilidades_array, j) != NULL){
-                strcat(habilidades, json_object_get_string(json_object_array_get_idx(habilidades_array, j)));
-                strcat(habilidades, " ");
+        int n_habilidades = json_object_array_length(habilidades);
+        for (int j = 0; j < n_habilidades; j++)
+        {
+            const char *habilidade = json_object_get_string(json_object_array_get_idx(habilidades, j));
+            if (strcmp(habilidade, "") != 0)
+            { // se hab não é vazia
+                char *tmp = malloc(100 * sizeof(char));
+                strcpy(tmp, "");
+                strcat(tmp, habilidade);
+                strcat(tmp, ", ");
+                strcat(info, tmp);
+                free(tmp);
             }
         }
 
-        // concatenate the values of each field into the profiles array
-        strcat(profiles, email);
-        strcat(profiles, nome);
-        strcat(profiles, sobrenome);
-        strcat(profiles, residencia);
-        strcat(profiles, formacao);
-        sprintf(profiles + strlen(profiles), "Ano de Formatura: %d\n", ano_formatura);
-        strcat(profiles, "Habilidades: ");
-        strcat(profiles, habilidades);
-        strcat(profiles, "\n\n");
+        strcat(info, "\n\n");
+        strcat(response, info);
+        free(info);
     }
 
     fclose(file);
-    return profiles;
+    if (strcmp(response, "") == 0)
+    {
+        response = "There are no profiles!\n";
+    }
+    return response;
 }
 
 // listar todas as pessoas (email, nome e curso) formadas em um determinado ano;
-char* list_profiles_by_year(char* year){
+char *list_profiles_by_year(char *year)
+{
 
-    char* response;
+    char *response;
     FILE *file = fopen(FILENAME, "r");
 
-    if (file == NULL){
+    if (file == NULL)
+    {
         response = "Error, can't open file!\n";
         return response;
     }
 
     json_object *profiles_obj = json_object_from_file(FILENAME);
 
-    if (profiles_obj == NULL){
+    if (profiles_obj == NULL)
+    {
         fclose(file);
         response = "Error, can't read file!\n";
         return response;
     }
 
     char *profiles = malloc(10000 * sizeof(char)); // allocate memory for the profiles string
-    strcpy(profiles, ""); // initialize the string to an empty string
+    strcpy(profiles, "");                          // initialize the string to an empty string
     strcat(profiles, "Profiles graduated in ");
     strcat(profiles, year);
     strcat(profiles, ":\n\n");
@@ -549,7 +606,8 @@ char* list_profiles_by_year(char* year){
         json_object *profile = json_object_array_get_idx(profiles_array, i);
         int profile_year = json_object_get_int(json_object_object_get(profile, "ano_de_formatura"));
 
-        if (profile_year == atoi(year)){
+        if (profile_year == atoi(year))
+        {
             strcat(profiles, "Email: ");
             strcat(profiles, json_object_get_string(json_object_object_get(profile, "email")));
             strcat(profiles, "\n");
@@ -562,14 +620,15 @@ char* list_profiles_by_year(char* year){
         }
     }
 
-    if (strcmp(profiles, "") == 0){
+    if (strcmp(profiles, "") == 0)
+    {
         fclose(file);
         response = "Profiles not found!\n";
         return response;
     }
-    else{
+    else
+    {
         fclose(file);
         return profiles;
     }
 }
-
