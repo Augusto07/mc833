@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     {
         option = get_option();
         int bytes_sent = send(sockfd, &option, sizeof(option), 0);
-        char str[50];
+        char str[500];
         switch (option)
         {
         case 1:
@@ -117,8 +117,8 @@ int main(int argc, char *argv[])
 
         case 7:
             printf("Profiles:\n");
+            strcpy(str, "teste\n"); //just to consume the send opt
             general_function(sockfd, str);
-
             break;
 
         case 8:
@@ -130,6 +130,5 @@ int main(int argc, char *argv[])
     }
 
     close(sockfd);
-
     return 0;
 }

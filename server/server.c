@@ -175,6 +175,8 @@ int main(void)
 
                 case 7:
                     printf("Profile list:\n");
+                    receive_message(new_fd, message);
+                    printf("%s", message);
                     response = get_all_profiles();
                     printf("%s", response);
                     send_message(new_fd, response);

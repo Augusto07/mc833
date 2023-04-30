@@ -14,7 +14,7 @@
 #include "../model/profile.h"
 #include <json-c/json.h>
 
-#define MAX_LEN_RCV 8192
+#define MAX_LEN_RCV 16384
 
 void receive_message(int socket, char *message)
 {
