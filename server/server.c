@@ -18,8 +18,6 @@
 #define BACKLOG 1   // how many pending connections queue will hold
 #define MAXDATASIZE 50 //max data received at one time by the user
 
-
-
 int main(void)
 {
     int sockfd, new_fd; // listen on sock_fd, new connection on new_fd

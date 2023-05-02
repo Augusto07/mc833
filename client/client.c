@@ -12,7 +12,7 @@
 #include "client_manager.c"
 
 #define PORT "1969"     // the port client will be connecting to
-#define MAXDATASIZE 100 // max number of bytes we can get at once
+#define MAXDATASIZE 50 // max number of bytes we can get at once
 
 int main(int argc, char *argv[])
 {
@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     freeaddrinfo(servinfo); // all done with this structure
 
     int option = 0;
-    
+
     printf("\n");
     printf("Hello! Choose your option!\n");
 
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     {
         option = get_option();
         int bytes_sent = send(sockfd, &option, sizeof(option), 0);
-        char str[50];
+        char str[MAXDATASIZE];
         switch (option)
         {
         case 1:

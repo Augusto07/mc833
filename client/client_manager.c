@@ -23,18 +23,18 @@ void receive_message(int socket, char *message)
     {
         int received = recv(socket, message, MAX_LEN_RCV - 1, 0); // receive msg
 
-        if (received == -1)
+        if (received == -1) // error recv
         {
             perror("Error receiving");
             return;
         }
-        else if (received > MAX_LEN_RCV - 1)
-        { // if overflow max defined
+        else if (received > MAX_LEN_RCV - 1) // overflow
+        { 
             perror("Error word is too long");
             return;
         }
-        else if (received >= 0)
-        { // ok
+        else if (received >= 0) // ok
+        { 
             message[received] = '\0';
             return;
         }
@@ -45,7 +45,7 @@ void receive_message(int socket, char *message)
 void send_message(int socket, char *message)
 {
 
-    if (strlen(message) > MAX_LEN_RCV - 1)
+    if (strlen(message) > MAX_LEN_RCV - 1) // overflow
     {
         perror("String is too big");
         return;
@@ -54,12 +54,12 @@ void send_message(int socket, char *message)
     while (1)
     {
         int sent = send(socket, message, strlen(message), 0);
-        if (sent == -1)
+        if (sent == -1) // error send
         {
             perror("Error sending");
             return;
         }
-        else if (sent >= 0)
+        else if (sent >= 0) // ok
         {
             return;
         }
@@ -70,7 +70,7 @@ void send_message(int socket, char *message)
 void create_profile(int socket)
 {
     char sendmsg[512];
-    char message[50];
+    char message[64];
     int year;
 
     // Get email
