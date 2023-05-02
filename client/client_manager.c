@@ -12,10 +12,10 @@
 #include <signal.h>
 #include <json-c/json.h>
 #include "../model/profile.h"
-#include <json-c/json.h>
 
 #define MAX_LEN_RCV 16384
 
+// check and recv msg
 void receive_message(int socket, char *message)
 {
 
@@ -41,6 +41,7 @@ void receive_message(int socket, char *message)
     }
 }
 
+// check and send msg
 void send_message(int socket, char *message)
 {
 
@@ -65,9 +66,10 @@ void send_message(int socket, char *message)
     }
 }
 
+// aux function to create a profile
 void create_profile(int socket)
 {
-    char buffer[512];
+    char sendmsg[512];
     char message[50];
     int year;
 
@@ -76,8 +78,8 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get name
 
@@ -85,8 +87,8 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get last name
 
@@ -94,8 +96,8 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get residence
 
@@ -103,8 +105,8 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get academic formation
 
@@ -112,8 +114,8 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get skills
 
@@ -121,25 +123,26 @@ void create_profile(int socket)
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get graduation year
     receive_message(socket, message);
     printf("%s", message);
     memset(message, 0, sizeof(message)); // reset to empty
 
-    scanf(" %[^\n]", buffer);
-    send_message(socket, buffer);
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
 
     // Get status
     printf("\n");
-    receive_message(socket, buffer);
-    printf("%s", buffer);
+    receive_message(socket, sendmsg);
+    printf("%s", sendmsg);
 
     return;
 }
 
+// generic function to send and receive msgs
 void general_function(int socket, char *sendmsg)
 {
 
@@ -157,6 +160,7 @@ void general_function(int socket, char *sendmsg)
     return;
 }
 
+// funct to take input opt from user
 int get_option()
 {
     int opt;

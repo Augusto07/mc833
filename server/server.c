@@ -16,18 +16,9 @@
 
 #define PORT "1969" // the port users will be connecting to
 #define BACKLOG 1   // how many pending connections queue will hold
-#define MAXDATASIZE 1000
+#define MAXDATASIZE 50 //max data received at one time by the user
 
-// get sockaddr, IPv4 or IPv6:
-void *get_in_addr(struct sockaddr *sa)
-{
-    if (sa->sa_family == AF_INET)
-    {
-        return &(((struct sockaddr_in *)sa)->sin_addr);
-    }
 
-    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
-}
 
 int main(void)
 {
@@ -107,7 +98,7 @@ int main(void)
         if (!fork())
         {                  // this is the child process
             close(sockfd); // child doesn't need the listener
-            char message[MAXDATASIZE];
+            char message[3];
             char *response;
             int numbytes;
             int opt;
@@ -182,6 +173,10 @@ int main(void)
                     send_message(new_fd, response);
                     response = NULL;
                     memset(message, 0, sizeof(message)); // reset to empty
+                    break;
+                
+                case 8:
+                    printf("Client disconnected\n");
                     break;
 
                 default:

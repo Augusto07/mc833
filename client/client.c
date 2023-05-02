@@ -16,8 +16,7 @@
 
 int main(int argc, char *argv[])
 {
-    int sockfd, numbytes;
-    char buf[MAXDATASIZE];
+    int sockfd;
     struct addrinfo hints, *servinfo, *p;
     int rv;
     char s[INET6_ADDRSTRLEN];
@@ -69,6 +68,7 @@ int main(int argc, char *argv[])
     freeaddrinfo(servinfo); // all done with this structure
 
     int option = 0;
+    
     printf("\n");
     printf("Hello! Choose your option!\n");
 
@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
     {
         option = get_option();
         int bytes_sent = send(sockfd, &option, sizeof(option), 0);
-        char str[500];
+        char str[50];
         switch (option)
         {
         case 1:

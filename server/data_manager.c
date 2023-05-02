@@ -12,11 +12,11 @@
 #include <signal.h>
 #include <json-c/json.h>
 #include "../model/profile.h"
-#include <json-c/json.h>
 
 #define FILENAME "../json/perfil.json"
-#define MAX_LEN_RCV 8192
+#define MAX_LEN_RCV 16384
 
+// check and recv msg
 void receive_message(int socket, char *message)
 {
 
@@ -43,6 +43,7 @@ void receive_message(int socket, char *message)
     }
 }
 
+// check and send msg
 void send_message(int socket, char *message)
 {
 
@@ -67,7 +68,7 @@ void send_message(int socket, char *message)
     }
 }
 
-// preenche a struct profile com dados do cliente
+// fill profile struct with info from client
 void fill_profile(int socket, perfil *profile)
 {
 
@@ -127,7 +128,7 @@ void fill_profile(int socket, perfil *profile)
 
 //==================FUNCTIONS TO BE PERFORMED BY THE SERVER==================
 
-// cadastrar um novo perfil utilizando o email como identificador;
+// create a new profile with info from struct
 char *create_profile(perfil *profile)
 {
 
@@ -211,7 +212,7 @@ char *create_profile(perfil *profile)
     return response;
 }
 
-// remover um perfil a partir de seu identificador (email);
+// delete a profile by email from client
 char *delete_profile(char *email)
 {
 
@@ -268,7 +269,7 @@ char *delete_profile(char *email)
     return response;
 }
 
-// dado o email de um perfil, retornar suas informações;
+// retrieve a profile by email from client
 char *get_profile_info(char *email)
 {
     char *response;
@@ -336,7 +337,7 @@ char *get_profile_info(char *email)
     return response;
 }
 
-// listar todas as pessoas (email e nome) formadas em um determinado curso;
+// retrieve all profiles with course from client
 char *list_profiles_by_course(char *course)
 {
 
@@ -407,7 +408,7 @@ char *list_profiles_by_course(char *course)
     }
 }
 
-// listar todas as pessoas (email e nome) formadas em uma determinada habilidade;
+// retrieve all profiles with skill from client
 char *list_profiles_by_skill(char *skill)
 {
 
@@ -500,7 +501,7 @@ char *list_profiles_by_skill(char *skill)
     }
 }
 
-// listar todas as informações de todos os perfis;
+// retrieve all profiles
 char *get_all_profiles()
 {
     char *response;
@@ -569,7 +570,7 @@ char *get_all_profiles()
     return response;
 }
 
-// listar todas as pessoas (email, nome e curso) formadas em um determinado ano;
+// retrieve all profiles with grad year from client
 char *list_profiles_by_year(char *year)
 {
 
@@ -631,4 +632,15 @@ char *list_profiles_by_year(char *year)
         fclose(file);
         return profiles;
     }
+}
+
+// get sockaddr, IPv4 or IPv6:
+void *get_in_addr(struct sockaddr *sa)
+{
+    if (sa->sa_family == AF_INET)
+    {
+        return &(((struct sockaddr_in *)sa)->sin_addr);
+    }
+
+    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
 }
