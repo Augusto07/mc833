@@ -1,0 +1,365 @@
+Start testing: Apr 25 12:20 UTC
+----------------------------------------------------------
+1/24 Testing: test1
+1/24 Test: test1
+Command: "/workspaces/mc833/jsonc/json-c/tests/test1.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test1" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   3.97 sec
+----------------------------------------------------------
+Test Passed.
+"test1" end time: Apr 25 12:20 UTC
+"test1" time elapsed: 00:00:03
+----------------------------------------------------------
+
+2/24 Testing: test2
+2/24 Test: test2
+Command: "/workspaces/mc833/jsonc/json-c/tests/test2.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test2" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   3.63 sec
+----------------------------------------------------------
+Test Passed.
+"test2" end time: Apr 25 12:20 UTC
+"test2" time elapsed: 00:00:03
+----------------------------------------------------------
+
+3/24 Testing: test4
+3/24 Test: test4
+Command: "/workspaces/mc833/jsonc/json-c/tests/test4.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test4" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.60 sec
+----------------------------------------------------------
+Test Passed.
+"test4" end time: Apr 25 12:20 UTC
+"test4" time elapsed: 00:00:00
+----------------------------------------------------------
+
+4/24 Testing: testReplaceExisting
+4/24 Test: testReplaceExisting
+Command: "/workspaces/mc833/jsonc/json-c/tests/testReplaceExisting.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"testReplaceExisting" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"testReplaceExisting" end time: Apr 25 12:20 UTC
+"testReplaceExisting" time elapsed: 00:00:00
+----------------------------------------------------------
+
+5/24 Testing: test_cast
+5/24 Test: test_cast
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_cast.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_cast" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.66 sec
+----------------------------------------------------------
+Test Passed.
+"test_cast" end time: Apr 25 12:20 UTC
+"test_cast" time elapsed: 00:00:00
+----------------------------------------------------------
+
+6/24 Testing: test_charcase
+6/24 Test: test_charcase
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_charcase.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_charcase" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.54 sec
+----------------------------------------------------------
+Test Passed.
+"test_charcase" end time: Apr 25 12:20 UTC
+"test_charcase" time elapsed: 00:00:00
+----------------------------------------------------------
+
+7/24 Testing: test_compare
+7/24 Test: test_compare
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_compare.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_compare" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.57 sec
+----------------------------------------------------------
+Test Passed.
+"test_compare" end time: Apr 25 12:20 UTC
+"test_compare" time elapsed: 00:00:00
+----------------------------------------------------------
+
+8/24 Testing: test_deep_copy
+8/24 Test: test_deep_copy
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_deep_copy.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_deep_copy" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.74 sec
+----------------------------------------------------------
+Test Passed.
+"test_deep_copy" end time: Apr 25 12:20 UTC
+"test_deep_copy" time elapsed: 00:00:00
+----------------------------------------------------------
+
+9/24 Testing: test_double_serializer
+9/24 Test: test_double_serializer
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_double_serializer.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_double_serializer" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"test_double_serializer" end time: Apr 25 12:20 UTC
+"test_double_serializer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+10/24 Testing: test_float
+10/24 Test: test_float
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_float.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_float" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.54 sec
+----------------------------------------------------------
+Test Passed.
+"test_float" end time: Apr 25 12:20 UTC
+"test_float" time elapsed: 00:00:00
+----------------------------------------------------------
+
+11/24 Testing: test_int_add
+11/24 Test: test_int_add
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_int_add.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_int_add" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"test_int_add" end time: Apr 25 12:20 UTC
+"test_int_add" time elapsed: 00:00:00
+----------------------------------------------------------
+
+12/24 Testing: test_int_get
+12/24 Test: test_int_get
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_int_get.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_int_get" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.52 sec
+----------------------------------------------------------
+Test Passed.
+"test_int_get" end time: Apr 25 12:20 UTC
+"test_int_get" time elapsed: 00:00:00
+----------------------------------------------------------
+
+13/24 Testing: test_locale
+13/24 Test: test_locale
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_locale.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_locale" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.66 sec
+----------------------------------------------------------
+Test Passed.
+"test_locale" end time: Apr 25 12:20 UTC
+"test_locale" time elapsed: 00:00:00
+----------------------------------------------------------
+
+14/24 Testing: test_null
+14/24 Test: test_null
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_null.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_null" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.56 sec
+----------------------------------------------------------
+Test Passed.
+"test_null" end time: Apr 25 12:20 UTC
+"test_null" time elapsed: 00:00:00
+----------------------------------------------------------
+
+15/24 Testing: test_parse
+15/24 Test: test_parse
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_parse.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_parse" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.68 sec
+----------------------------------------------------------
+Test Passed.
+"test_parse" end time: Apr 25 12:20 UTC
+"test_parse" time elapsed: 00:00:00
+----------------------------------------------------------
+
+16/24 Testing: test_parse_int64
+16/24 Test: test_parse_int64
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_parse_int64.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_parse_int64" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"test_parse_int64" end time: Apr 25 12:20 UTC
+"test_parse_int64" time elapsed: 00:00:00
+----------------------------------------------------------
+
+17/24 Testing: test_printbuf
+17/24 Test: test_printbuf
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_printbuf.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_printbuf" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.56 sec
+----------------------------------------------------------
+Test Passed.
+"test_printbuf" end time: Apr 25 12:20 UTC
+"test_printbuf" time elapsed: 00:00:00
+----------------------------------------------------------
+
+18/24 Testing: test_set_serializer
+18/24 Test: test_set_serializer
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_set_serializer.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_set_serializer" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.57 sec
+----------------------------------------------------------
+Test Passed.
+"test_set_serializer" end time: Apr 25 12:20 UTC
+"test_set_serializer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+19/24 Testing: test_set_value
+19/24 Test: test_set_value
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_set_value.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_set_value" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+12.300000000000001
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"test_set_value" end time: Apr 25 12:20 UTC
+"test_set_value" time elapsed: 00:00:00
+----------------------------------------------------------
+
+20/24 Testing: test_strerror
+20/24 Test: test_strerror
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_strerror.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_strerror" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.55 sec
+----------------------------------------------------------
+Test Passed.
+"test_strerror" end time: Apr 25 12:20 UTC
+"test_strerror" time elapsed: 00:00:00
+----------------------------------------------------------
+
+21/24 Testing: test_util_file
+21/24 Test: test_util_file
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_util_file.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_util_file" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"test_util_file" end time: Apr 25 12:20 UTC
+"test_util_file" time elapsed: 00:00:00
+----------------------------------------------------------
+
+22/24 Testing: test_visit
+22/24 Test: test_visit
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_visit.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_visit" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+ERROR: invalid return value from json_c_visit userfunc: 100
+<end of output>
+Test time =   0.64 sec
+----------------------------------------------------------
+Test Passed.
+"test_visit" end time: Apr 25 12:20 UTC
+"test_visit" time elapsed: 00:00:00
+----------------------------------------------------------
+
+23/24 Testing: test_object_iterator
+23/24 Test: test_object_iterator
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_object_iterator.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_object_iterator" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.58 sec
+----------------------------------------------------------
+Test Passed.
+"test_object_iterator" end time: Apr 25 12:20 UTC
+"test_object_iterator" time elapsed: 00:00:00
+----------------------------------------------------------
+
+24/24 Testing: test_json_pointer
+24/24 Test: test_json_pointer
+Command: "/workspaces/mc833/jsonc/json-c/tests/test_json_pointer.test"
+Directory: /workspaces/mc833/jsonc/json-c-build/tests
+"test_json_pointer" start time: Apr 25 12:20 UTC
+Output:
+----------------------------------------------------------
+<end of output>
+Test time =   0.64 sec
+----------------------------------------------------------
+Test Passed.
+"test_json_pointer" end time: Apr 25 12:20 UTC
+"test_json_pointer" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Apr 25 12:20 UTC
