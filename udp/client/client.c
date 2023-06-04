@@ -6,6 +6,7 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <client_manager.c>
 
 #define PORT "8080" // Specify your desired port number
 #define MAXDATASIZE 100
@@ -20,20 +21,12 @@ int get_option()
     printf("5. Option 5\n");
     printf("6. Option 6\n");
     printf("7. Option 7\n");
-    printf("8. Exit\n");
+    printf("8. Option 8\n");
+    printf("9. Option 9\n");
+    printf("10. Exit\n");
     printf("Enter your option: ");
     scanf("%d", &option);
     return option;
-}
-
-void create_profile(int sockfd)
-{
-    // Code for create_profile function goes here
-}
-
-void general_function(int sockfd, const char *str)
-{
-    // Code for general_function goes here
 }
 
 int main(int argc, char *argv[])
@@ -62,8 +55,7 @@ int main(int argc, char *argv[])
     // loop through all the results and bind to the first we can
     for (p = servinfo; p != NULL; p = p->ai_next)
     {
-        if ((sockfd = socket(p->ai_family, p->ai_socktype,
-                             p->ai_protocol)) == -1)
+        if ((sockfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol)) == -1)
         {
             perror("client: socket");
             continue;
@@ -78,16 +70,16 @@ int main(int argc, char *argv[])
     }
 
     inet_ntop(p->ai_family, get_in_addr((struct sockaddr *)p->ai_addr), s, sizeof s);
-    printf("client: connecting to %s\n", s);
+    printf("client: sending to %s\n", s);
 
     freeaddrinfo(servinfo); // all done with this structure
 
     int option = 0;
+    char str[MAXDATASIZE];
 
-    printf("\n");
-    printf("Hello! Choose your option!\n");
+    printf("\nHello! Choose your option!\n");
 
-    while (option != 8)
+    while (option != 10)
     {
         option = get_option();
         int bytes_sent = sendto(sockfd, &option, sizeof(option), 0, p->ai_addr, p->ai_addrlen);
@@ -135,8 +127,18 @@ int main(int argc, char *argv[])
             strcpy(str, "teste\n"); // just to consume the send opt
             general_function(sockfd, str);
             break;
-
         case 8:
+            printf("Email to be linked to image profile:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
+        case 9:
+            printf("Email to get image profile:\n");
+            scanf(" %[^\n]", str);
+            general_function(sockfd, str);
+            break;
+
+        case 10:
             break;
 
         default:

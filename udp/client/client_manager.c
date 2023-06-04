@@ -10,57 +10,37 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include <../json-c/json.h>
+#include "../jsonc/json-c-build/json.h"
 #include "../model/profile.h"
 
 #define MAX_LEN_RCV 16384
 
 // check and recv msg
-void receive_message(int socket, char *message)
-{
-    while (1)
-    {
-        int received = recvfrom(socket, message, MAX_LEN_RCV - 1, 0, NULL, NULL); // receive msg
-
-        if (received == -1) // error recv
-        {
+void receive_message(int socket, char *message) {
+    while (1) {
+        int received = recvfrom(socket, message, MAX_LEN_RCV - 1, 0, NULL, NULL);
+        if (received == -1 || received > MAX_LEN_RCV - 1) {
             perror("Error receiving");
             return;
         }
-        else if (received > MAX_LEN_RCV - 1) // overflow
-        {
-            perror("Error word is too long");
-            return;
-        }
-        else if (received >= 0) // ok
-        {
-            message[received] = '\0';
-            return;
-        }
+        message[received] = '\0';
+        return;
     }
 }
 
-// check and send msg
-void send_message(int socket, char *message)
-{
-    if (strlen(message) > MAX_LEN_RCV - 1) // overflow
-    {
+void send_message(int socket, char *message) {
+    if (strlen(message) > MAX_LEN_RCV - 1) {
         perror("String is too big");
         return;
     }
 
-    while (1)
-    {
+    while (1) {
         int sent = sendto(socket, message, strlen(message), 0, NULL, 0);
-        if (sent == -1) // error send
-        {
+        if (sent == -1) {
             perror("Error sending");
             return;
         }
-        else if (sent >= 0) // ok
-        {
-            return;
-        }
+        return;
     }
 }
 
@@ -170,7 +150,9 @@ int get_option()
     printf("5: Search profile(s) by skill \n");
     printf("6: Search profile(s) by graduation year \n");
     printf("7: List all profiles\n");
-    printf("8: Exit\n");
+    printf("8: Post image profile\n");
+    printf("9: Get image profile\n");
+    printf("10: Exit\n");
     printf("\n");
 
     if (scanf("%d", &opt) == 1)
