@@ -10,7 +10,6 @@
 #include <arpa/inet.h>
 #include <sys/wait.h>
 #include <signal.h>
-#include <json-c/json.h>
 #include "../model/profile.h"
 
 #define FILENAME "../json/perfil.json"

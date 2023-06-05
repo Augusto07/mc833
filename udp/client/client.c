@@ -6,10 +6,220 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-#include <client_manager.c>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <unistd.h>
+#include "client.h"
+#include "../model/profile.h"
 
 #define PORT "8080" // Specify your desired port number
 #define MAXDATASIZE 100
+#define MAX_LEN_RCV 16384
+#define MAXLINE 1024
+
+
+void image_downloader(int sockfd, char *name)
+{
+    FILE *image_file;
+    size_t bytes_received = 0;
+    char buffer[MAXLINE];
+    char filename[MAXLINE] = {0};
+
+    image_file = fopen(filename, "w");
+    if (image_file == NULL)
+    {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    while (1)
+    {
+        ssize_t image_bytes_received = recvfrom(sockfd, buffer, MAXLINE, 0, NULL, NULL);
+        if (image_bytes_received <= 0)
+        {
+            break;
+        }
+
+        printf("Received %ld bytes\n", image_bytes_received);
+
+        size_t bytes_to_be_written = fwrite(buffer, sizeof(char), image_bytes_received, image_file);
+        if (bytes_to_be_written != image_bytes_received)
+        {
+            perror("Error writing to file");
+            exit(EXIT_FAILURE);
+        }
+
+        bytes_received += bytes_to_be_written;
+    }
+
+    fclose(image_file);
+    printf("Successfully received %ld bytes\n", bytes_received);
+}
+
+void image_sender(int sockfd, struct sockaddr_in servaddr, socklen_t servlen, char *path)
+{
+    FILE *fp = fopen(path, "rb");
+    if (fp == NULL)
+    {
+        perror("Error opening file");
+        exit(EXIT_FAILURE);
+    }
+
+    char buffer[MAXLINE];
+    int bytes_read;
+    while ((bytes_read = fread(buffer, 1, sizeof(buffer), fp)) > 0)
+    {
+        ssize_t bytesSent = sendto(sockfd, buffer, bytes_read, 0, (const struct sockaddr *)&servaddr, servlen);
+        if (bytesSent < 0)
+        {
+            perror("Error sending file");
+            exit(EXIT_FAILURE);
+        }
+        bzero(buffer, MAXLINE);
+    }
+
+    printf("Image sent successfully.\n");
+    fclose(fp);
+}
+
+// check and recv msg
+void receive_message(int socket, char *message) {
+    while (1) {
+        int received = recvfrom(socket, message, MAX_LEN_RCV - 1, 0, NULL, NULL);
+        if (received == -1 || received > MAX_LEN_RCV - 1) {
+            perror("Error receiving");
+            return;
+        }
+        message[received] = '\0';
+        return;
+    }
+}
+
+void send_message(int socket, char *message) {
+    if (strlen(message) > MAX_LEN_RCV - 1) {
+        perror("String is too big");
+        return;
+    }
+
+    while (1) {
+        int sent = sendto(socket, message, strlen(message), 0, NULL, 0);
+        if (sent == -1) {
+            perror("Error sending");
+            return;
+        }
+        return;
+    }
+}
+
+// aux function to create a profile
+void create_profile(int socket)
+{
+    char sendmsg[512];
+    char message[64];
+    int year;
+
+    // Get email
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get name
+
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get last name
+
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get residence
+
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get academic formation
+
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get skills
+
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get graduation year
+    receive_message(socket, message);
+    printf("%s", message);
+    memset(message, 0, sizeof(message)); // reset to empty
+
+    scanf(" %[^\n]", sendmsg);
+    send_message(socket, sendmsg);
+
+    // Get status
+    printf("\n");
+    receive_message(socket, sendmsg);
+    printf("%s", sendmsg);
+
+    return;
+}
+
+// generic function to send and receive msgs
+void general_function(int socket, char *sendmsg)
+{
+
+    char response[MAX_LEN_RCV];
+    send_message(socket, sendmsg);
+    receive_message(socket, response);
+    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty
+
+    printf("\n");
+    printf("===================================\n");
+    printf("\n");
+    printf("%s", response);
+    printf("===================================\n");
+    printf("\n");
+    return;
+}
+
+
+
+// get sockaddr, IPv4 or IPv6:
+void *get_in_addr(struct sockaddr *sa)
+{
+    if (sa->sa_family == AF_INET)
+    {
+        return &(((struct sockaddr_in *)sa)->sin_addr);
+    }
+
+    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
+}
+
+
 
 int get_option()
 {
