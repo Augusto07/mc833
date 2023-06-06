@@ -368,7 +368,7 @@ MEMORYCHECK_SUPPRESSIONS_FILE:FILEPATH=
 OVERRIDE_GET_RANDOM_SEED:BOOL=OFF
 
 //Name of the computer/site where compile is being run
-SITE:STRING=codespaces-65c2f9
+SITE:STRING=codespaces-23dad8
 
 //Dependencies for the target
 json-c-static_LIB_DEPENDS:STATIC=general;m;general;bsd;
@@ -403,7 +403,7 @@ CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
 CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=1
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=3
 //ADVANCED property for variable: CMAKE_COLOR_MAKEFILE
 CMAKE_COLOR_MAKEFILE-ADVANCED:INTERNAL=1
 //Path to CMake executable.

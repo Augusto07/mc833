@@ -8,10 +8,12 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include "../model/profile.h"
+#include "data_manager.c"
 
 #define MYPORT "4950"    // the port users will be connecting to
 
-#define MAXBUFLEN 100
+#define MAXBUFLEN 17000
 
 // get sockaddr, IPv4 or IPv6:
 void *get_in_addr(struct sockaddr *sa)
@@ -87,6 +89,101 @@ int main(void)
 
         buf[numbytes] = '\0';
         printf("listener: packet contains \"%s\"\n", buf); //printa o que foi recebido
+
+        char opt = buf[strlen(buf) - 1] - '0';
+
+        char *msg = strtok(buf, "&");
+
+        printf("Mensagem: %s\n", msg);  
+        printf("Dígito: %d\n", opt);  
+
+        char *response;
+
+        switch (opt)
+            {
+            case '1':;
+                perfil profile;
+
+                fill_profile(&profile, msg);
+                response = create_profile(&profile);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                break;
+
+            case '2':
+                receive_message(sockfd, message);
+                response = delete_profile(message);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+                break;
+
+            case '3':
+                receive_message(sockfd, message);
+                response = get_profile_info(message);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+
+                break;
+
+            case '4':
+                receive_message(sockfd, message);
+                response = list_profiles_by_course(message);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+                break;
+
+            case '5':
+                receive_message(sockfd, message);
+                response = list_profiles_by_skill(message);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+                break;
+
+            case '6':
+                receive_message(sockfd, message);
+                response = list_profiles_by_year(message);
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+                break;
+
+            case '7':
+                printf("Profile list:\n");
+                receive_message(sockfd, message);
+                printf("%s", message);
+                response = get_all_profiles();
+                printf("%s", response);
+                send_message(sockfd, response);
+                response = NULL;
+                memset(message, 0, sizeof(message)); // reset to empty
+                break;
+            
+            case '8':
+                //caso download foto
+                break;
+
+            default:
+                printf("Invalid option!\n");
+            }
+
+
+
+        
+
+
+        
+
+
 
         //fazer a separação da opção após o &
         //implementar switch case para operações 

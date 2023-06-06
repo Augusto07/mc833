@@ -69,61 +69,50 @@ void send_message(int socket, char *message)
 }
 
 // fill profile struct with info from client
-void fill_profile(int socket, perfil *profile)
+void fill_profile(perfil *p, char* str)
 {
+    char *token;
+    int i = 0;
 
-    char email[50], nome[50], sobrenome[50], residencia[50], formacaoacademica[50], habilidades[512], anodeformatura[5];
+    token = strtok(str, "/");
 
-    // email
-    send_message(socket, "Insert email: \n");
-    receive_message(socket, email);
-
-    // name
-    send_message(socket, "Insert name: \n");
-    receive_message(socket, nome);
-
-    // sobrenome
-    send_message(socket, "Insert last name: \n");
-    receive_message(socket, sobrenome);
-
-    // residencia
-    send_message(socket, "Insert residence: \n");
-    receive_message(socket, residencia);
-
-    // formacaoacademica
-    send_message(socket, "Insert academic formation: \n");
-    receive_message(socket, formacaoacademica);
-
-    // habilidades
-    send_message(socket, "Insert skills separated by comma (skill1,skill2...): \n");
-    receive_message(socket, habilidades);
-
-    // anodeformatura
-    send_message(socket, "Insert graduation year: \n");
-    receive_message(socket, anodeformatura);
-
-    // copy values to struct
-    strcpy(profile->email, email);
-    strcpy(profile->nome, nome);
-    strcpy(profile->sobrenome, sobrenome);
-    strcpy(profile->residencia, residencia);
-    strcpy(profile->formacaoacademica, formacaoacademica);
-    strcpy(profile->habilidades[0], strtok(habilidades, ","));
-
-    for (int i = 1; i < 10; i++)
-    {
-        char *token = strtok(NULL, ",");
-        if (token != NULL)
-        {
-            strcpy(profile->habilidades[i], token);
+    while (token != NULL) {
+        switch (i) {
+            case 0:
+                strncpy(p->email, token, 100);
+                break;
+            case 1:
+                strncpy(p->nome, token, 100);
+                break;
+            case 2:
+                strncpy(p->sobrenome, token, 100);
+                break;
+            case 3:
+                strncpy(p->residencia, token, 100);
+                break;
+            case 4:
+                strncpy(p->formacaoacademica, token, 100);
+                break;
+            case 5:
+                // Separar as habilidades usando ","
+                {
+                    char *habilidade = strtok(token, ",");
+                    int j = 0;
+                    while (habilidade != NULL && j < 10) {
+                        strncpy(p->habilidades[j], habilidade, 100);
+                        habilidade = strtok(NULL, ",");
+                        j++;
+                    }
+                }
+                break;
+            case 6:
+                p->anodeformatura = atoi(token);
+                break;
         }
-        else
-        {
-            strcpy(profile->habilidades[i], "");
-        }
+
+        token = strtok(NULL, "/");
+        i++;
     }
-    profile->anodeformatura = atoi(anodeformatura); // fix if given is char*
-    return;
 }
 
 //==================FUNCTIONS TO BE PERFORMED BY THE SERVER==================
@@ -642,13 +631,3 @@ char *list_profiles_by_year(char *year)
     }
 }
 
-// get sockaddr, IPv4 or IPv6:
-void *get_in_addr(struct sockaddr *sa)
-{
-    if (sa->sa_family == AF_INET)
-    {
-        return &(((struct sockaddr_in *)sa)->sin_addr);
-    }
-
-    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
-}
