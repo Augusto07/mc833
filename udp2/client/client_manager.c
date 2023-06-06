@@ -13,12 +13,15 @@
 #define MAX_LEN_RCV 16384
 
 // check and recv msg
-void receive_message(int socket, char *message, struct addrinfo *p)
+void receive_message(int socket, char *message)
 {
+    struct sockaddr_storage their_addr;
+    socklen_t addr_len;
 
     while (1)
     {
-        int received = recvfrom(socket, message, MAX_LEN_RCV - 1, 0, p->ai_addr, p->ai_addrlen); // receive msg
+        int received = recvfrom(socket, message, MAX_LEN_RCV - 1, 0,
+                (struct sockaddr *)&their_addr, &addr_len); // receive msg
 
         if (received == -1) // error recv
         {
@@ -135,19 +138,29 @@ void create_profile(int socket, struct addrinfo *p)
     // Get status
     printf("\n");
     send_message(socket, sendmsg, p);
+    char msg[200];
+    receive_message(socket, msg);
     printf("%s", sendmsg);
 
     return;
 }
 
 // generic function to send and receive msgs
-void general_function(int socket, char *sendmsg, struct addrinfo *p)
+void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
 {
+    char code[5];
+
+    sprintf(code, "&%d", msgcode);
+    strcat(sendmsg, code); //concat sendmsg and &msgcode
+
+    printf("%s\n", sendmsg);
 
     char response[MAX_LEN_RCV];
-    send_message(socket, sendmsg, p);
-    receive_message(socket, response, p);
-    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty
+
+    send_message(socket, sendmsg, p); //send message sendmsg
+    receive_message(socket, response); //receive response response
+
+    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty //reset msg to empty
 
     printf("\n");
     printf("===================================\n");
@@ -170,7 +183,8 @@ int get_option()
     printf("5: Search profile(s) by skill \n");
     printf("6: Search profile(s) by graduation year \n");
     printf("7: List all profiles\n");
-    printf("8: Exit\n");
+    printf("8: Download image\n");
+    printf("9: Exit\n");
     printf("\n");
 
     if (scanf("%d", &opt) == 1)
@@ -179,17 +193,6 @@ int get_option()
     }
     else
     {
-        return 8;
+        return 9;
     }
-}
-
-// get sockaddr, IPv4 or IPv6:
-void *get_in_addr(struct sockaddr *sa)
-{
-    if (sa->sa_family == AF_INET)
-    {
-        return &(((struct sockaddr_in *)sa)->sin_addr);
-    }
-
-    return &(((struct sockaddr_in6 *)sa)->sin6_addr);
 }

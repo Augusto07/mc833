@@ -59,16 +59,14 @@ int main(int argc, char *argv[])
 
     printf("\nHello! Choose your option!\n");
 
-    while (option != 10)
+    while (option != 9)
     {
-        option = get_option();
-        printf("%d", option);
-        int bytes_sent = sendto(sockfd, &option, sizeof(option), 0, p->ai_addr, p->ai_addrlen);
-        printf("%d", bytes_sent);
-        char str[MAXDATASIZE];
-        switch (option)
+        option = get_option(); //option chosen by the user
+        char str[MAXDATASIZE]; //string with info to be send
+
+        switch (option) 
         {
-        case 1:
+        case 1: //create profile
             printf("\n");
             create_profile(sockfd, p);
             printf("\n");
@@ -77,44 +75,46 @@ int main(int argc, char *argv[])
         case 2:
             printf("Insert profile email:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
 
         case 3:
             printf("Insert profile email:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
 
-        case 4:
+        case 4: //search profile by course
             printf("Insert course:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
 
-        case 5:
+        case 5: //search profile by skill
             printf("Insert skill:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
 
-        case 6:
+        case 6: //search profile by grad year
             printf("Insert graduation year:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
 
-        case 7:
+        case 7: //get all profiles
             printf("Profiles:\n");
-            strcpy(str, "teste\n"); // just to consume the send opt
-            general_function(sockfd, str, p);
+            strcpy(str, "all"); // just to consume the send opt
+            general_function(sockfd, str, p, option);
             break;
-        case 8:
+
+        case 8: //download image
             printf("Insert profile email:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p);
+            general_function(sockfd, str, p, option);
             break;
-        case 9:
+
+        case 9: //exit
             break;
 
         default:
