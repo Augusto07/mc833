@@ -1,15 +1,15 @@
-==35780== Memcheck, a memory error detector
-==35780== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==35780== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
-==35780== Command: /workspaces/mc833/jsonc/json-c-build/tests/test_set_value /workspaces/mc833/jsonc/json-c/tests
-==35780== Parent PID: 35764
-==35780== 
-==35780== 
-==35780== HEAP SUMMARY:
-==35780==     in use at exit: 0 bytes in 0 blocks
-==35780==   total heap usage: 26 allocs, 26 frees, 6,478 bytes allocated
-==35780== 
-==35780== All heap blocks were freed -- no leaks are possible
-==35780== 
-==35780== For lists of detected and suppressed errors, rerun with: -s
-==35780== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==18023== Memcheck, a memory error detector
+==18023== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==18023== Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info
+==18023== Command: /workspaces/mc833/jsonc/json-c-build/tests/test_set_value /workspaces/mc833/jsonc/json-c/tests
+==18023== Parent PID: 18009
+==18023== 
+==18023== 
+==18023== HEAP SUMMARY:
+==18023==     in use at exit: 0 bytes in 0 blocks
+==18023==   total heap usage: 26 allocs, 26 frees, 6,478 bytes allocated
+==18023== 
+==18023== All heap blocks were freed -- no leaks are possible
+==18023== 
+==18023== For lists of detected and suppressed errors, rerun with: -s
+==18023== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

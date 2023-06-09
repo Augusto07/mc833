@@ -13,41 +13,14 @@
 #include <json-c/json.h>
 #include "../model/profile.h"
 
-#define FILENAME "../json/perfil.json"
+#define FILENAME "../../json/perfil.json"
 #define MAX_LEN_RCV 16384
 
-// check and recv msg
-void receive_message(int socket, char *message)
-{
-
-    while (1)
-    {
-        int received = recv(socket, message, MAX_LEN_RCV - 1, 0); // receive msg
-
-        if (received == -1) // error recv
-        {
-            perror("Error receiving");
-            return;
-        }
-        else if (received > MAX_LEN_RCV - 1) // overflow
-        { 
-            perror("Error word is too long");
-            return;
-        }
-        else if (received >= 0) // ok
-        { 
-            message[received] = '\0';
-            printf("Received: %s\n", message);
-            return;
-        }
-    }
-}
-
 // check and send msg
-void send_message(int socket, char *message)
+void send_message(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len)
 {
 
-    if (strlen(message) > MAX_LEN_RCV - 1) //overflow
+    if (strlen(message) > MAX_LEN_RCV - 1) // overflow
     {
         perror("String is too big");
         return;
@@ -55,9 +28,9 @@ void send_message(int socket, char *message)
 
     while (1)
     {
-        int sent = send(socket, message, strlen(message), 0);
+        int sent = sendto(socket, message, strlen(message), 0, __addr, __addr_len);
         if (sent == -1) // error send
-        { 
+        {
             perror("Error sending");
             return;
         }
@@ -71,12 +44,15 @@ void send_message(int socket, char *message)
 // fill profile struct with info from client
 void fill_profile(perfil *p, char* str)
 {
+    char str_copia[17000];
+    strncpy(str_copia, str, sizeof(str_copia));
     char *token;
     int i = 0;
 
-    token = strtok(str, "/");
+    token = strtok(str_copia, "/");
 
     while (token != NULL) {
+        printf("%s\n", token);
         switch (i) {
             case 0:
                 strncpy(p->email, token, 100);
@@ -96,12 +72,21 @@ void fill_profile(perfil *p, char* str)
             case 5:
                 // Separar as habilidades usando ","
                 {
-                    char *habilidade = strtok(token, ",");
                     int j = 0;
-                    while (habilidade != NULL && j < 10) {
+                    char *ptr = token;
+                    char habilidade[100];
+                    while (*ptr != '\0' && j < 10) {
+                        int k = 0;
+                        while (*ptr != '\0' && *ptr != ',') {
+                            habilidade[k] = *ptr;
+                            ptr++;
+                            k++;
+                        }
+                        habilidade[k] = '\0';
                         strncpy(p->habilidades[j], habilidade, 100);
-                        habilidade = strtok(NULL, ",");
                         j++;
+                        if (*ptr == ',')
+                            ptr++;
                     }
                 }
                 break;

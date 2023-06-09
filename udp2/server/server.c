@@ -74,18 +74,18 @@ int main(void)
     while(1){
 
         char buf[MAXBUFLEN]; //buffer que guarda as msgs recebidas
-        addr_len = sizeof their_addr;
+        addr_len = sizeof their_addr; //tamanho end quem envia
 
         if ((numbytes = recvfrom(sockfd, buf, MAXBUFLEN-1 , 0,
             (struct sockaddr *)&their_addr, &addr_len)) == -1) {
             perror("recvfrom");
-            exit(1);
-        }
+            exit(1); 
+        } //recebe msg
 
         printf("listener: got packet from %s\n",
             inet_ntop(their_addr.ss_family,
                 get_in_addr((struct sockaddr *)&their_addr),
-                s, sizeof s)); //print de onde vem o pacote
+                s, sizeof s)); //print de onde vem o pacote e preenche info
 
         buf[numbytes] = '\0';
         printf("listener: packet contains \"%s\"\n", buf); //printa o que foi recebido
@@ -101,71 +101,72 @@ int main(void)
 
         switch (opt)
             {
-            case '1':;
-                perfil profile;
+            case 1:;
 
-                fill_profile(&profile, msg);
-                response = create_profile(&profile);
+                perfil profile; //cria struct profile
+                fill_profile(&profile, msg); //preenche estrutura
+                response = create_profile(&profile); //cria perfil no json
+
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
                 break;
 
             case '2':
-                receive_message(sockfd, message);
-                response = delete_profile(message);
+
+                response = delete_profile(msg);
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
             case '3':
-                receive_message(sockfd, message);
-                response = get_profile_info(message);
+
+                response = get_profile_info(msg);
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
 
                 break;
 
             case '4':
-                receive_message(sockfd, message);
-                response = list_profiles_by_course(message);
+
+                response = list_profiles_by_course(msg);
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
             case '5':
-                receive_message(sockfd, message);
-                response = list_profiles_by_skill(message);
+
+                response = list_profiles_by_skill(msg);
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
             case '6':
-                receive_message(sockfd, message);
-                response = list_profiles_by_year(message);
+
+                response = list_profiles_by_year(msg);
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
             case '7':
                 printf("Profile list:\n");
-                receive_message(sockfd, message);
-                printf("%s", message);
+
+                printf("%s", msg);
                 response = get_all_profiles();
                 printf("%s", response);
-                send_message(sockfd, response);
+                send_message(sockfd, response, (struct sockaddr *)&their_addr, addr_len);
                 response = NULL;
-                memset(message, 0, sizeof(message)); // reset to empty
+                memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
             
             case '8':
@@ -175,16 +176,6 @@ int main(void)
             default:
                 printf("Invalid option!\n");
             }
-
-
-
-        
-
-
-        
-
-
-
         //fazer a separação da opção após o &
         //implementar switch case para operações 
         //implementar mecanismo de resposta

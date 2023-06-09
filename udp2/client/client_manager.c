@@ -17,6 +17,7 @@ void receive_message(int socket, char *message)
 {
     struct sockaddr_storage their_addr;
     socklen_t addr_len;
+    addr_len = sizeof(struct sockaddr_storage);
 
     while (1)
     {
@@ -140,7 +141,7 @@ void create_profile(int socket, struct addrinfo *p)
     send_message(socket, sendmsg, p);
     char msg[200];
     receive_message(socket, msg);
-    printf("%s", sendmsg);
+    printf("%s", msg);
 
     return;
 }
