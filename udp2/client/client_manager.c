@@ -154,8 +154,6 @@ void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode
     sprintf(code, "&%d", msgcode);
     strcat(sendmsg, code); //concat sendmsg and &msgcode
 
-    printf("%s\n", sendmsg);
-
     char response[MAX_LEN_RCV];
 
     send_message(socket, sendmsg, p); //send message sendmsg

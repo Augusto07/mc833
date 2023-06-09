@@ -616,3 +616,9 @@ char *list_profiles_by_year(char *year)
     }
 }
 
+char* get_photo(char* email){
+
+
+    
+}
+

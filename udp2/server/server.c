@@ -112,7 +112,7 @@ int main(void)
                 response = NULL;
                 break;
 
-            case '2':
+            case 2:
 
                 response = delete_profile(msg);
                 printf("%s", response);
@@ -121,7 +121,7 @@ int main(void)
                 memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
-            case '3':
+            case 3:
 
                 response = get_profile_info(msg);
                 printf("%s", response);
@@ -131,7 +131,7 @@ int main(void)
 
                 break;
 
-            case '4':
+            case 4:
 
                 response = list_profiles_by_course(msg);
                 printf("%s", response);
@@ -140,7 +140,7 @@ int main(void)
                 memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
-            case '5':
+            case 5:
 
                 response = list_profiles_by_skill(msg);
                 printf("%s", response);
@@ -149,7 +149,7 @@ int main(void)
                 memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
-            case '6':
+            case 6:
 
                 response = list_profiles_by_year(msg);
                 printf("%s", response);
@@ -158,7 +158,7 @@ int main(void)
                 memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
 
-            case '7':
+            case 7:
                 printf("Profile list:\n");
 
                 printf("%s", msg);
@@ -169,7 +169,7 @@ int main(void)
                 memset(msg, 0, sizeof(msg)); // reset to empty
                 break;
             
-            case '8':
+            case 8:
                 //caso download foto
                 break;
 
