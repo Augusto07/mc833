@@ -177,9 +177,7 @@ int main(void)
             default:
                 printf("Invalid option!\n");
             }
-        //fazer a separação da opção após o &
-        //implementar switch case para operações 
-        //implementar mecanismo de resposta
+        
         memset(buf, 0, sizeof(buf)); // reset to empty
 
     }

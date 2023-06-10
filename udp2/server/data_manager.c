@@ -654,7 +654,7 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
         
         file_size -= bytes_sent;
     }
-
+    fclose(file);
     return;
 }
 
