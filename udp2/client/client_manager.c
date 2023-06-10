@@ -170,6 +170,61 @@ void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode
     return;
 }
 
+void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode){
+
+    char code[5];
+
+    char* filename = "images/";
+
+    strcat(filename, sendmsg);
+    strcat(filename, ".jpg");
+
+    sprintf(code, "&%d", msgcode);
+    strcat(sendmsg, code); //concat sendmsg and &msgcode
+
+    char response[MAX_LEN_RCV];
+
+    send_message(socket, sendmsg, p); //send message sendmsg
+
+    receive_message(socket, response);
+
+    if (strcmp(response, "File does not exist") == 0){
+
+        printf("%s\n", response);
+        return;
+    }
+
+    FILE* file = fopen(filename, "wb");
+
+    if (file == NULL) {
+        printf("Erro ao criar o arquivo\n");
+        return;
+    }
+
+    char buffer[MAX_LEN_RCV];
+
+    while (1) {
+        
+        int bytes_received = recvfrom(socket, buffer, sizeof(buffer), 0, NULL, NULL);
+        
+        if (bytes_received < 0) {
+            printf("Erro ao receber dados\n");
+            break;
+        }
+        
+        // Salvar os dados recebidos no arquivo
+        fwrite(buffer, sizeof(char), bytes_received, file);
+        
+        // Verificar se todos os dados foram recebidos
+        if (bytes_received < sizeof(buffer)) {
+            printf("Imagem recebida!\n");
+            break;
+    }
+}
+
+
+}
+
 // funct to take input opt from user
 int get_option()
 {

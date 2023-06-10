@@ -171,6 +171,7 @@ int main(void)
             
             case 8:
                 //caso download foto
+                get_photo(sockfd, msg, (struct sockaddr *)&their_addr, addr_len);
                 break;
 
             default:

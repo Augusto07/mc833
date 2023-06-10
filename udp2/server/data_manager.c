@@ -616,9 +616,45 @@ char *list_profiles_by_year(char *year)
     }
 }
 
-char* get_photo(char* email){
+void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len){
 
+    char* filename = "images/";
 
-    
+    strcat(filename, message);
+    strcat(filename, ".jpg");
+
+    printf("%s\n", filename);
+
+    FILE* file = fopen(filename, "rb");
+
+    if (file == NULL) {
+        send_message(socket, "File does not exist", __addr, __addr_len);
+        return;
+    }
+
+    fseek(file, 0, SEEK_END);
+    long file_size = ftell(file);
+    rewind(file);
+
+    char buffer[MAX_LEN_RCV];
+    int bytes_sent, bytes_read;
+
+    while (file_size > 0) {
+
+    // Leia os dados do arquivo para o buffer
+        bytes_read = fread(buffer, sizeof(char), sizeof(buffer), file);
+        
+        // Envie o pacote para o cliente usando a função sendto()
+        bytes_sent = sendto(socket, buffer, bytes_read, 0, __addr, __addr_len);
+        
+        if (bytes_sent < 0) {
+            printf("Erro ao enviar dados\n");
+            break;
+        }
+        
+        file_size -= bytes_sent;
+    }
+
+    return;
 }
 
