@@ -42,7 +42,7 @@ void send_message(int socket, char *message, struct sockaddr *__addr, socklen_t 
 }
 
 // fill profile struct with info from client
-void fill_profile(perfil *p, char* str)
+void fill_profile(perfil *p, char *str)
 {
     char str_copia[17000];
     strncpy(str_copia, str, sizeof(str_copia));
@@ -51,48 +51,52 @@ void fill_profile(perfil *p, char* str)
 
     token = strtok(str_copia, "/");
 
-    while (token != NULL) {
+    while (token != NULL)
+    {
         printf("%s\n", token);
-        switch (i) {
-            case 0:
-                strncpy(p->email, token, 100);
-                break;
-            case 1:
-                strncpy(p->nome, token, 100);
-                break;
-            case 2:
-                strncpy(p->sobrenome, token, 100);
-                break;
-            case 3:
-                strncpy(p->residencia, token, 100);
-                break;
-            case 4:
-                strncpy(p->formacaoacademica, token, 100);
-                break;
-            case 5:
-                // Separar as habilidades usando ","
+        switch (i)
+        {
+        case 0:
+            strncpy(p->email, token, 100);
+            break;
+        case 1:
+            strncpy(p->nome, token, 100);
+            break;
+        case 2:
+            strncpy(p->sobrenome, token, 100);
+            break;
+        case 3:
+            strncpy(p->residencia, token, 100);
+            break;
+        case 4:
+            strncpy(p->formacaoacademica, token, 100);
+            break;
+        case 5:
+            // Separar as habilidades usando ","
+            {
+                int j = 0;
+                char *ptr = token;
+                char habilidade[100];
+                while (*ptr != '\0' && j < 10)
                 {
-                    int j = 0;
-                    char *ptr = token;
-                    char habilidade[100];
-                    while (*ptr != '\0' && j < 10) {
-                        int k = 0;
-                        while (*ptr != '\0' && *ptr != ',') {
-                            habilidade[k] = *ptr;
-                            ptr++;
-                            k++;
-                        }
-                        habilidade[k] = '\0';
-                        strncpy(p->habilidades[j], habilidade, 100);
-                        j++;
-                        if (*ptr == ',')
-                            ptr++;
+                    int k = 0;
+                    while (*ptr != '\0' && *ptr != ',')
+                    {
+                        habilidade[k] = *ptr;
+                        ptr++;
+                        k++;
                     }
+                    habilidade[k] = '\0';
+                    strncpy(p->habilidades[j], habilidade, 100);
+                    j++;
+                    if (*ptr == ',')
+                        ptr++;
                 }
-                break;
-            case 6:
-                p->anodeformatura = atoi(token);
-                break;
+            }
+            break;
+        case 6:
+            p->anodeformatura = atoi(token);
+            break;
         }
 
         token = strtok(NULL, "/");
@@ -124,7 +128,7 @@ char *create_profile(perfil *profile)
         return response;
     }
 
-    json_object *profiles = json_object_from_file(FILENAME); //get all obj from JSON
+    json_object *profiles = json_object_from_file(FILENAME); // get all obj from JSON
 
     if (profiles == NULL)
     {
@@ -132,8 +136,8 @@ char *create_profile(perfil *profile)
         return response;
     }
 
-    profiles = json_object_object_get(profiles, "profiles"); //get all profiles from JSON
-    int n_profiles = json_object_array_length(profiles); // get how many profiles
+    profiles = json_object_object_get(profiles, "profiles"); // get all profiles from JSON
+    int n_profiles = json_object_array_length(profiles);     // get how many profiles
 
     for (int i = 0; i < n_profiles; i++)
     {
@@ -149,10 +153,10 @@ char *create_profile(perfil *profile)
         }
     }
 
-    //create new JSON obj
+    // create new JSON obj
     json_object *new_profile = json_object_new_object();
 
-    //add to obj
+    // add to obj
     json_object_object_add(new_profile, "email", json_object_new_string(profile->email));
     json_object_object_add(new_profile, "nome", json_object_new_string(profile->nome));
     json_object_object_add(new_profile, "sobrenome", json_object_new_string(profile->sobrenome));
@@ -167,14 +171,14 @@ char *create_profile(perfil *profile)
     }
 
     json_object_object_add(new_profile, "habilidades", habilidades_array);
-    json_object_array_add(profiles, new_profile); //add new profile to profiles
+    json_object_array_add(profiles, new_profile); // add new profile to profiles
 
-    json_object *new_profiles = json_object_new_object(); //create new object
+    json_object *new_profiles = json_object_new_object(); // create new object
 
-    //add the updated list of profiles to the new obj
+    // add the updated list of profiles to the new obj
     json_object_object_add(new_profiles, "profiles", profiles);
 
-    if (json_object_to_file(FILENAME, new_profiles) == -1) //transform the new obj to file
+    if (json_object_to_file(FILENAME, new_profiles) == -1) // transform the new obj to file
     {
         fclose(file);
         json_object_put(new_profiles);
@@ -203,7 +207,7 @@ char *delete_profile(char *email)
         return response;
     }
 
-    json_object *profiles = json_object_from_file(FILENAME); //get all obj from JSON
+    json_object *profiles = json_object_from_file(FILENAME); // get all obj from JSON
 
     if (profiles == NULL)
     {
@@ -212,7 +216,7 @@ char *delete_profile(char *email)
         return response;
     }
 
-    profiles = json_object_object_get(profiles, "profiles"); //get all profiles from JSON
+    profiles = json_object_object_get(profiles, "profiles"); // get all profiles from JSON
 
     int n_profiles = json_object_array_length(profiles); // get how many profiles
 
@@ -221,13 +225,13 @@ char *delete_profile(char *email)
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email_ = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email_), email) == 0) //compare if given email == profile's email
+        if (strcmp(json_object_get_string(email_), email) == 0) // compare if given email == profile's email
         {
-            json_object_array_del_idx(profiles, i, 1); // delete it
-            json_object *new_profiles = json_object_new_object(); // make a new object
+            json_object_array_del_idx(profiles, i, 1);                  // delete it
+            json_object *new_profiles = json_object_new_object();       // make a new object
             json_object_object_add(new_profiles, "profiles", profiles); // save updated profiles to new obj
 
-            if (json_object_to_file(FILENAME, new_profiles) == -1) //transform in file
+            if (json_object_to_file(FILENAME, new_profiles) == -1) // transform in file
             {
                 fclose(file);
                 json_object_put(new_profiles);
@@ -251,7 +255,7 @@ char *get_profile_info(char *email)
 
     FILE *file = fopen(FILENAME, "r");
 
-    //error handling
+    // error handling
     if (file == NULL)
     {
         response = "Error, can't open file!\n";
@@ -275,7 +279,7 @@ char *get_profile_info(char *email)
         json_object *p = json_object_array_get_idx(profiles, i);
         json_object *email_ = json_object_object_get(p, "email");
 
-        if (strcmp(json_object_get_string(email_), email) == 0) //if given email == profile's email
+        if (strcmp(json_object_get_string(email_), email) == 0) // if given email == profile's email
         {
 
             char *info = malloc(sizeof(char) * 1024); // alloc space to save string
@@ -283,8 +287,7 @@ char *get_profile_info(char *email)
             snprintf(info, 1024, "Email: %s\nName: %s\nSurname: %s\nResidence: %s\nCourse: %s\nGraduation Year: %d\nSkills: ",
                      json_object_get_string(email_), json_object_get_string(json_object_object_get(p, "nome")),
                      json_object_get_string(json_object_object_get(p, "sobrenome")), json_object_get_string(json_object_object_get(p, "residencia")),
-                     json_object_get_string(json_object_object_get(p, "formacao_academica")), json_object_get_int(json_object_object_get(p, "ano_de_formatura"))); //concatenate info in one string
-            
+                     json_object_get_string(json_object_object_get(p, "formacao_academica")), json_object_get_int(json_object_object_get(p, "ano_de_formatura"))); // concatenate info in one string
 
             json_object *habilidades_array = json_object_object_get(p, "habilidades");
             int n_habilidades = json_object_array_length(habilidades_array);
@@ -324,7 +327,7 @@ char *list_profiles_by_course(char *course)
 
     FILE *file = fopen(FILENAME, "r");
 
-    //error handling
+    // error handling
 
     if (file == NULL)
     {
@@ -340,7 +343,7 @@ char *list_profiles_by_course(char *course)
         return response;
     }
 
-    json_object *profiles_array = json_object_object_get(profiles, "profiles"); //get profiles
+    json_object *profiles_array = json_object_object_get(profiles, "profiles"); // get profiles
 
     int n_profiles = json_object_array_length(profiles_array);
 
@@ -575,7 +578,7 @@ char *list_profiles_by_year(char *year)
     }
 
     char *profiles = malloc(MAX_LEN_RCV * sizeof(char)); // allocate memory for the profiles string
-    strcpy(profiles, "");                          // initialize the string to an empty string
+    strcpy(profiles, "");                                // initialize the string to an empty string
     strcat(profiles, "Profiles graduated in ");
     strcat(profiles, year);
     strcat(profiles, ":\n\n");
@@ -616,8 +619,8 @@ char *list_profiles_by_year(char *year)
     }
 }
 
-void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len){
-
+void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len)
+{
 
     char filename[100] = "";
     char *path = "images/";
@@ -627,11 +630,11 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
 
     printf("%s\n", filename);
 
-    FILE* file = fopen(filename, "rb");
+    FILE *file = fopen(filename, "rb");
 
-    if (file == NULL) {
+    if (file == NULL)
+    {
         send_message(socket, "File does not exist", __addr, __addr_len);
-        printf("entrou aq\n");
         return;
     }
 
@@ -644,19 +647,23 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
 
     long total_bytes_sent = 0;
 
-    while (file_size > 0) {
+    while (file_size > 0)
+    {
 
         // Leia os dados do arquivo para o buffer
-        bytes_read = fread(buffer, sizeof(char), sizeof(buffer), file);
-        
+        bytes_read = fread(buffer, 1, sizeof(buffer), file);
+
         // Envie o pacote para o cliente usando a função sendto()
         bytes_sent = sendto(socket, buffer, bytes_read, 0, __addr, __addr_len);
-        
-        if (bytes_sent < 0) {
+
+        usleep(1000);
+
+        if (bytes_sent < 0)
+        {
             printf("Erro ao enviar dados\n");
             break;
         }
-        
+
         total_bytes_sent += bytes_sent;
         file_size -= bytes_read;
     }
@@ -665,4 +672,3 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
     fclose(file);
     return;
 }
-
