@@ -8,11 +8,17 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>
-#include "../model/profile.h"
+#include <netinet/ip.h>
+#include <sys/time.h>
 #include <sys/poll.h>
+#include "../model/profile.h"
 
+#define SERVERPORT "4950" // the port users will be connecting to
+#define MAXDATASIZE 1000000
 #define MAX_LEN_RCV 16384
-#define TIMEOUT_MS 5000
+#define MAXLINE 1024
+
+#define TIMEOUT_MS 2000
 
 // check and recv msg
 void receive_message(int socket, char *message)
@@ -33,7 +39,7 @@ void receive_message(int socket, char *message)
     }
     else if (poll_status == 0)
     {
-        printf("Timeout occurred\n");
+        printf("Timeout occurred in receiving message\n");
         return;
     }
 
@@ -75,7 +81,7 @@ void send_message(int socket, char *message, struct addrinfo *p)
     }
     else if (poll_status == 0)
     {
-        printf("Timeout occurred\n");
+        printf("Timeout occurred inside send message\n");
         return;
     }
 
@@ -172,29 +178,6 @@ void create_profile(int socket, struct addrinfo *p)
     return;
 }
 
-// generic function to send and receive msgs
-void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
-{
-    char code[5];
-
-    sprintf(code, "&%d", msgcode);
-    strcat(sendmsg, code); // concat sendmsg and &msgcode
-
-    char response[MAX_LEN_RCV];
-
-    send_message(socket, sendmsg, p);  // send message sendmsg
-    receive_message(socket, response); // receive response response
-
-    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty //reset msg to empty
-
-    printf("\n");
-    printf("===================================\n");
-    printf("\n");
-    printf("%s", response);
-    printf("===================================\n");
-    printf("\n");
-    return;
-}
 
 void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
 {
@@ -230,41 +213,79 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
         return;
     }
 
+    struct pollfd fds[1];
+    fds[0].fd = socket;
+    fds[0].events = POLLIN;
+
     char buffer[2048];
     size_t total_bytes_received = 0;
 
     while (1)
     {
-        ssize_t bytes_received = recv(socket, buffer, sizeof(buffer), 0);
-
-        if (bytes_received <= 0)
+        int poll_status = poll(fds, 1, TIMEOUT_MS);
+        if (poll_status == -1)
         {
-            if (bytes_received == 0)
+            perror("Error in poll");
+            break;
+        }
+        else if (poll_status == 0)
+        {
+            printf("Timeout occurred in downloading the image\n");
+            break;
+        }
+
+        if (fds[0].revents & POLLIN)
+        {
+            ssize_t bytes_received = recvfrom(socket, buffer, sizeof(buffer), 0, NULL, NULL);
+            if (bytes_received <= 0)
+            {
+                printf("Error receiving!\n");
                 break;
-            printf("Error receiving!\n");
-            break;
+            }
+
+            printf("Received %ld bytes\n", bytes_received);
+
+            // Save the received data to the file
+            size_t wbytes = fwrite(buffer, sizeof(char), bytes_received, file);
+
+            // Verify if all the data was written correctly
+            if (wbytes != bytes_received)
+            {
+                printf("Error writing!\n");
+                break;
+            }
+
+            // Update the total bytes received
+            total_bytes_received += bytes_received;
         }
-
-        printf("Received %ld bytes\n", bytes_received);
-
-        // Save the received data to the file
-        size_t wbytes = fwrite(buffer, sizeof(char), bytes_received, file);
-
-        // Verify if all the data was written correctly
-        if (bytes_received != wbytes)
-        {
-            printf("Error writing!\n");
-            break;
-        }
-
-        // Update the total bytes received
-        total_bytes_received += bytes_received;
     }
 
     fclose(file);
     printf("Total bytes received: %zu\n", total_bytes_received);
 }
+// generic function to send and receive msgs
+void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
+{
+    char code[5];
 
+    sprintf(code, "&%d", msgcode);
+    strcat(sendmsg, code); // concat sendmsg and &msgcode
+
+    char response[MAX_LEN_RCV];
+
+    send_message(socket, sendmsg, p);  // send message sendmsg
+    receive_message(socket, response); // receive response response
+
+    memset(sendmsg, 0, sizeof(sendmsg)); // reset to empty //reset msg to empty
+
+    printf("\n");
+    printf("===================================\n");
+    printf("\n");
+    printf("%s", response);
+    printf("===================================\n");
+    printf("\n");
+    return;
+}
 // funct to take input opt from user
 int get_option()
 {
