@@ -174,8 +174,10 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode){
 
     char code[5];
 
-    char* filename = "images/";
+    char filename[100] = "";
+    char *path = "images/";
 
+    strcat(filename, path);
     strcat(filename, sendmsg);
     strcat(filename, ".jpg");
 

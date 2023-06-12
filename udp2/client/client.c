@@ -111,7 +111,7 @@ int main(int argc, char *argv[])
         case 8: //download image
             printf("Insert profile email:\n");
             scanf(" %[^\n]", str);
-            general_function(sockfd, str, p, option);
+            download_image(sockfd, str, p, option);
             break;
 
         case 9: //exit

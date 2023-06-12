@@ -618,8 +618,10 @@ char *list_profiles_by_year(char *year)
 
 void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len){
 
-    char* filename = "images/";
 
+    char filename[100] = "";
+    char *path = "images/";
+    strcat(filename, path);
     strcat(filename, message);
     strcat(filename, ".jpg");
 
@@ -629,6 +631,7 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
 
     if (file == NULL) {
         send_message(socket, "File does not exist", __addr, __addr_len);
+        printf("entrou aq\n");
         return;
     }
 
@@ -639,9 +642,11 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
     char buffer[MAX_LEN_RCV];
     int bytes_sent, bytes_read;
 
-    while (file_size > 0) {
+    long total_bytes_sent = 0;
 
-    // Leia os dados do arquivo para o buffer
+    while (file_size > 0) {
+        
+        // Leia os dados do arquivo para o buffer
         bytes_read = fread(buffer, sizeof(char), sizeof(buffer), file);
         
         // Envie o pacote para o cliente usando a função sendto()
@@ -652,8 +657,11 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
             break;
         }
         
-        file_size -= bytes_sent;
+        total_bytes_sent += bytes_sent;
+        file_size -= bytes_read;
     }
+
+    printf("Total de bytes enviados: %ld\n", total_bytes_sent);
     fclose(file);
     return;
 }
