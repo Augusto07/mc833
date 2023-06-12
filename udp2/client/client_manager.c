@@ -170,12 +170,11 @@ void general_function(int socket, char *sendmsg, struct addrinfo *p, int msgcode
     return;
 }
 
-void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode){
-
+void download_image(int socket, char* sendmsg, struct addrinfo* p, int msgcode) {
     char code[5];
 
     char filename[100] = "";
-    char *path = "images/";
+    char* path = "images/";
 
     strcat(filename, path);
     strcat(filename, sendmsg);
@@ -190,8 +189,7 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode){
 
     receive_message(socket, response);
 
-    if (strcmp(response, "File does not exist") == 0){
-
+    if (strcmp(response, "File does not exist") == 0) {
         printf("%s\n", response);
         return;
     }
@@ -203,28 +201,34 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode){
         return;
     }
 
-    char buffer[MAX_LEN_RCV];
+    char buffer[2048];
+    size_t total_bytes_received = 0;
 
     while (1) {
-        
-        int bytes_received = recvfrom(socket, buffer, sizeof(buffer), 0, NULL, NULL);
-        
-        if (bytes_received < 0) {
-            printf("Erro ao receber dados\n");
+        ssize_t bytes_received = recvfrom(socket, buffer, sizeof(buffer), 0, NULL, NULL);
+
+        if (bytes_received <= 0) {
+            printf("Error Receiving!\n");
             break;
         }
-        
+
+        printf("Received %ld bytes\n", bytes_received);
+
         // Salvar os dados recebidos no arquivo
-        fwrite(buffer, sizeof(char), bytes_received, file);
-        
-        // Verificar se todos os dados foram recebidos
-        if (bytes_received < sizeof(buffer)) {
-            printf("Imagem recebida!\n");
+        size_t wbytes = fwrite(buffer, sizeof(char), bytes_received, file);
+
+        // Verificar se todos os dados foram escritos corretamente
+        if (bytes_received != wbytes) {
+            printf("Error Writing!\n");
             break;
+        }
+
+        // Atualizar o total de bytes recebidos
+        total_bytes_received += bytes_received;
     }
-}
 
-
+    fclose(file);
+    printf("Total de bytes recebidos: %zu\n", total_bytes_received);
 }
 
 // funct to take input opt from user

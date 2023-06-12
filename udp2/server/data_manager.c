@@ -639,13 +639,13 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
     long file_size = ftell(file);
     rewind(file);
 
-    char buffer[MAX_LEN_RCV];
+    char buffer[2048];
     int bytes_sent, bytes_read;
 
     long total_bytes_sent = 0;
 
     while (file_size > 0) {
-        
+
         // Leia os dados do arquivo para o buffer
         bytes_read = fread(buffer, sizeof(char), sizeof(buffer), file);
         
