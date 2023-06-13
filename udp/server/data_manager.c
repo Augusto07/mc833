@@ -28,7 +28,7 @@ void send_message(int socket, char *message, struct sockaddr *__addr, socklen_t 
 
     while (1)
     {
-        int sent = sendto(socket, message, strlen(message), 0, __addr, __addr_len);
+        int sent = sendto(socket, message, strlen(message)+1, 0, __addr, __addr_len);
         if (sent == -1) // error send
         {
             perror("Error sending");
@@ -622,11 +622,11 @@ char *list_profiles_by_year(char *year)
 void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __addr_len)
 {
 
-    char filename[100] = "";
+    char filename[100] = ""; 
     char *path = "images/";
     strcat(filename, path);
     strcat(filename, message);
-    strcat(filename, ".jpg");
+    strcat(filename, ".jpg"); //nome do arquivo .jpg igual ao email
 
     printf("%s\n", filename);
 
@@ -634,33 +634,39 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
 
     if (file == NULL)
     {
-        send_message(socket, "File does not exist", __addr, __addr_len);
+        send_message(socket, "File does not exist", __addr, __addr_len); //se erro na abertura
         return;
+    }
+    else{
+
+        send_message(socket, "File exists!", __addr, __addr_len); //mensagem para consumir o recvfrom do cliente
     }
 
     fseek(file, 0, SEEK_END);
-    long file_size = ftell(file);
+    long file_size = ftell(file); //tamanho do arq
     rewind(file);
 
-    char buffer[2048];
+    char buffer[2048]; //buffer de envio
     int bytes_sent, bytes_read;
 
     long total_bytes_sent = 0;
 
-    while (file_size > 0)
+    while (file_size > 0) //loop enquanto arquivo não for totalmente enviado
     {
 
-        // Leia os dados do arquivo para o buffer
+        //Le os dados do arquivo para o buffer
         bytes_read = fread(buffer, 1, sizeof(buffer), file);
 
-        // Envie o pacote para o cliente usando a função sendto()
+        //Envia o pacote para o cliente usando a função sendto()
         bytes_sent = sendto(socket, buffer, bytes_read, 0, __addr, __addr_len);
 
-        usleep(1000);
+        printf("%d\n", bytes_sent);
+
+        usleep(1000); //sleep no envio
 
         if (bytes_sent < 0)
         {
-            printf("Erro ao enviar dados\n");
+            printf("Erro ao enviar dados\n"); //erro ao enviar
             break;
         }
 
@@ -668,7 +674,7 @@ void get_photo(int socket, char *message, struct sockaddr *__addr, socklen_t __a
         file_size -= bytes_read;
     }
 
-    printf("Total de bytes enviados: %ld\n", total_bytes_sent);
+    printf("Total de bytes enviados: %ld\n", total_bytes_sent); //total enviado
     fclose(file);
     return;
 }

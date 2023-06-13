@@ -185,6 +185,7 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
 
     char filename[100] = "";
     char *path = "images/";
+    int image_len;
 
     strcat(filename, path);
     strcat(filename, sendmsg);
@@ -197,19 +198,24 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
 
     send_message(socket, sendmsg, p); // send message sendmsg
 
-    receive_message(socket, response);
+    receive_message(socket, response); //receive status from server
 
     if (strcmp(response, "File does not exist") == 0)
     {
-        printf("%s\n", response);
+        printf("\n");
+        printf("%s\n", response); //print error file not found
         return;
+    }
+    else{
+
+        image_len = atoi(response);
     }
 
     FILE *file = fopen(filename, "wb");
 
     if (file == NULL)
     {
-        printf("Error creating the file\n");
+        printf("Error creating the file\n"); //error creating file
         return;
     }
 
@@ -230,32 +236,40 @@ void download_image(int socket, char *sendmsg, struct addrinfo *p, int msgcode)
         }
         else if (poll_status == 0)
         {
-            printf("Timeout occurred in downloading the image\n");
+            printf("Timeout occurred in downloading the image\n"); //poll timeout
             break;
         }
 
-        if (fds[0].revents & POLLIN)
-        {
+        if (fds[0].revents & POLLIN) //active socket
+        { 
             ssize_t bytes_received = recvfrom(socket, buffer, sizeof(buffer), 0, NULL, NULL);
-            if (bytes_received <= 0)
+            
+            if (bytes_received <= 0) //error receiving
             {
                 printf("Error receiving!\n");
                 break;
             }
 
-            printf("Received %ld bytes\n", bytes_received);
+            printf("Received %ld bytes\n", bytes_received); //print received pack
 
-            // Save the received data to the file
+            //save the received data to the file
             size_t wbytes = fwrite(buffer, sizeof(char), bytes_received, file);
 
-            // Verify if all the data was written correctly
+            //verify if all the data was written correctly
             if (wbytes != bytes_received)
             {
-                printf("Error writing!\n");
+                printf("Error writing!\n"); //error writing
                 break;
             }
 
-            // Update the total bytes received
+            if (bytes_received < 2048){ //last pack
+
+                printf("\n");
+                printf("Image Received!\n");
+                break;
+            }
+
+            //Update the total bytes received
             total_bytes_received += bytes_received;
         }
     }
