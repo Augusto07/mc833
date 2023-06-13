@@ -99,8 +99,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/Platform/UnixPaths.cmake"
   "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Modules/WriteBasicConfigVersionFile.cmake"
   "/home/codespace/.local/lib/python3.10/site-packages/cmake/data/share/cmake-3.26/Templates/CPackConfig.cmake.in"
-  "CMakeFiles/3.26.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.26.1/CMakeSystem.cmake"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeSystem.cmake"
   "/workspaces/mc833/jsonc/json-c/CMakeLists.txt"
   "/workspaces/mc833/jsonc/json-c/apps/CMakeLists.txt"
   "/workspaces/mc833/jsonc/json-c/apps/cmake/apps_config.h.in"
@@ -121,9 +121,9 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "CMakeFiles/3.26.1/CMakeSystem.cmake"
-  "CMakeFiles/3.26.1/CMakeCCompiler.cmake"
-  "CMakeFiles/3.26.1/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeSystem.cmake"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
+  "CMakeFiles/3.26.3/CMakeCCompiler.cmake"
   "DartConfiguration.tcl"
   "CPackConfig.cmake"
   "CPackSourceConfig.cmake"

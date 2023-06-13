@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "functional": "c"
+        "functional": "c",
+        "types.h": "c",
+        "inet.h": "c",
+        "system_error": "c"
     }
 }

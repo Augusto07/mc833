@@ -1,7 +1,7 @@
 
 # Description
 
-This repo contains the client and server modules. You must run one of them in one computer, and the other in another. Also, the json-c lib is added to repo to not require the user to install it (but in some OSs you must to).
+This repo contains the client and server modules (UDP and TCP versions). You must run one of them in one computer, and the other in another. Also, the json-c lib is added to repo to not require the user to install it (but in some OSs you must to).
 
 
 # How to run client and server:
